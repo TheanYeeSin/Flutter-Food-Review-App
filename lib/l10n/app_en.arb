@@ -1,0 +1,518 @@
+{
+  "reviewTitle": "Reviews",
+  "@reviewTitle": {
+    "description": "Reviews Title on the App Bar"
+  },
+  "searchTitle": "Search",
+  "@searchTitle": {
+    "description": "Search Title on the App Bar"
+  },
+  "randomRestaurantTitle": "Random Restaurant",
+  "@randomRestaurantTitle": {
+    "description": "Random Restaurant Title on the App Bar"
+  },
+  "myFavouritesTitle": "My Favourites",
+  "@myFavouritesTitle": {
+    "description": "My Favourites Title on the App Bar"
+  },
+  "categoriesSettingTitle": "Categories Setting",
+  "@categoriesSettingTitle": {
+    "description": "Categories Setting Title on the App Bar"
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Settings Title on the App Bar"
+  },
+  "appearanceSettingTitle": "Appearance Setting",
+  "@appearanceSettingTitle": {
+    "description": "Appearance Setting Title on the App Bar"
+  },
+  "notificationsSettingTitle": "Notifications Setting",
+  "@notificationsSettingTitle": {
+    "description": "Notifications Setting Title on the App Bar"
+  },
+  "generalSettingTitle": "General Setting",
+  "@generalSettingTitle": {
+    "description": "General Setting Title on the App Bar"
+  },
+  "addReviewTitle": "Add Review",
+  "@addReviewTitle": {
+    "description": "Add Review Title on the App Bar"
+  },
+  "editReviewTitle": "Edit Review",
+  "@editReviewTitle": {
+    "description": "Edit Review Title on the App Bar"
+  },
+  "addCategoryTitle": "Add Category",
+  "@addCategoryTitle": {
+    "description": "Add Category Title on the App Bar"
+  },
+  "editCategoryTitle": "Edit Category",
+  "@editCategoryTitle": {
+    "description": "Edit Category Title on the App Bar"
+  },
+  "backupRestoreSettingTitle": "Backup & Restore Setting",
+  "@backupRestoreSettingTitle": {
+    "description": "Backup & Restore Setting Title on the App Bar"
+  },
+  "advancedSettingTitle": "Advanced Setting",
+  "@advancedSettingTitle": {
+    "description": "Advanced Setting Title on the App Bar"
+  },
+  "allReviews": "All Reviews",
+  "@allReviews": {
+    "description": "All Reviews Button"
+  },
+  "myFavourites": "My Favourites",
+  "@myFavourites": {
+    "description": "My Favourites Button"
+  },
+  "allTitle": "All",
+  "@allTitle": {
+    "description": "All Title on the App Bar"
+  },
+  "view": "View",
+  "@view": {
+    "description": "View Button"
+  },
+  "restaurantNameSort": "Restaurant Name",
+  "@restaurantNameSort": {
+    "description": "Restaurant Name Sorting"
+  },
+  "ratingSort": "Rating",
+  "@ratingSort": {
+    "description": "Rating Sorting"
+  },
+  "createdTimeSort": "Created Time",
+  "@createdTimeSort": {
+    "description": "Created Time Sorting"
+  },
+  "randomRestaurantSpin": "Spin",
+  "@randomRestaurantSpin": {
+    "description": "Spin Button on random restaurant page"
+  },
+  "restaurantName": "Restaurant Name",
+  "@restaurantName": {
+    "description": "Restaurant Name"
+  },
+  "location": "Location",
+  "@location": {
+    "description": "Location"
+  },
+  "description": "Description",
+  "@description": {
+    "description": "Description"
+  },
+  "foodAvailableComma": "Food Available (Comma-separated)",
+  "@foodAvailableComma": {
+    "description": "Food Available (Comma-separated)"
+  },
+  "foodAvailable": "Food Available",
+  "@foodAvailable": {
+    "description": "Food Available"
+  },
+  "rating": "Rating",
+  "@rating": {
+    "description": "Rating"
+  },
+  "additionalReview": "Additional Review",
+  "@additionalReview": {
+    "description": "Additional Review"
+  },
+  "noAdditionalReview": "No Additional Review",
+  "@noAdditionalReview": {
+    "description": "No Additional Review"
+  },
+  "selectCategoriesButton": "Select Categories",
+  "@selectCategories": {
+    "description": "Select Categories Button"
+  },
+  "selectCategoriesDialogTitle": "Select Categories",
+  "@selectCategoriesDialogTitle": {
+    "description": "Select Categories Dialog Title"
+  },
+  "okay": "OK",
+  "@okay": {
+    "description": "OK Button"
+  },
+  "addReviewButton": "Add Review",
+  "@addReviewButton": {
+    "description": "Add Review Button"
+  },
+  "editReviewButton": "Edit Review",
+  "@editReviewButton": {
+    "description": "Edit Review Button"
+  },
+  "deleteReviewButton": "Delete Review",
+  "@deleteReviewButton": {
+    "description": "Delete Review Button"
+  },
+  "deleteReviewDialogTitle": "Delete Review",
+  "@deleteReviewDialogTitle": {
+    "description": "Delete Review Dialog Title"
+  },
+  "deleteReviewDialogMessage": "Are you sure you want to delete this review?",
+  "@deleteReviewDialogMessage": {
+    "description": "Delete Review Dialog Message"
+  },
+  "no": "No",
+  "@no": {
+    "description": "No Button"
+  },
+  "yes": "Yes",
+  "@yes": {
+    "description": "Yes Button"
+  },
+  "pickImage": "Pick Image",
+  "@pickImage": {
+    "description": "Pick Image Button"
+  },
+  "changeImage": "Change Image",
+  "@changeImage": {
+    "description": "Change Image Button"
+  },
+  "chooseOptionDialogTitle": "Choose option",
+  "@chooseOptionDialogTitle": {
+    "description": "Choose option Dialog Title"
+  },
+  "galleryOption": "Gallery",
+  "@galleryOption": {
+    "description": "Gallery Option"
+  },
+  "cameraOption": "Camera",
+  "@cameraOption": {
+    "description": "Camera Option"
+  },
+  "categoryName": "Category Name",
+  "@categoryName": {
+    "description": "Category Name"
+  },
+  "categoryDescription": "Category Description",
+  "@categoryDescription": {
+    "description": "Category Description"
+  },
+  "uploadCategoryImage": "Upload Image",
+  "@uploadCategoryImage": {
+    "description": "Upload Image Button for Category"
+  },
+  "updateCategoryImage": "Update Image",
+  "@updateCategoryImage": {
+    "description": "Update Image Button for Category"
+  },
+  "categoryImageUploaded": "Image uploaded!",
+  "@categoryImageUploaded": {
+    "description": "Image uploaded Message for Category"
+  },
+  "cancelButton": "Cancel",
+  "@cancelButton": {
+    "description": "Cancel Button"
+  },
+  "addButton": "Add",
+  "@addButton": {
+    "description": "Add Button"
+  },
+  "editButton": "Edit",
+  "@editButton": {
+    "description": "Edit Button"
+  },
+  "deleteCategoryDialogTitle": "Delete Category",
+  "@deleteCategoryDialogTitle": {
+    "description": "Delete Category Dialog Title"
+  },
+  "deleteCategoryDialogMessage": "Are you sure you want to delete this category?",
+  "@deleteCategoryDialogMessage": {
+    "description": "Delete Category Dialog Message"
+  },
+  "enterRestaurantNameError": "Please enter a restaurant name",
+  "@enterRestaurantNameError": {
+    "description": "Please enter a restaurant name Error Message"
+  },
+  "enterLocationError": "Please enter a location",
+  "@enterLocationError": {
+    "description": "Please enter a location Error Message"
+  },
+  "enterDescriptionError": "Please enter a description",
+  "@enterDescriptionError": {
+    "description": "Please enter a description Error Message"
+  },
+  "enterFoodAvailableError": "Please enter food available",
+  "@enterFoodAvailableError": {
+    "description": "Please enter food available Error Message"
+  },
+  "enterCategoryNameError": "Please enter a category name",
+  "@enterCategoryNameError": {
+    "description": "Please enter a category name Error Message"
+  },
+  "enterCategoryDescriptionError": "Please enter a category description",
+  "@enterCategoryDescriptionError": {
+    "description": "Please enter a category description Error Message"
+  },
+  "pickImageError": "Failed to pick image: {e}",
+  "@pickImageError": {
+    "description": "Failed to pick image Error Message",
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "notEnoughRestaurantsError": "Need at least 2 restaurants to spin!",
+  "@notEnoughRestaurantsError": {
+    "description": "Not enough restaurants Error Message"
+  },
+  "noReviewYet": "No review yet",
+  "@noReviewYet": {
+    "description": "No review yet Message"
+  },
+  "noCategoryYet": "No category yet",
+  "@noCategoryYet": {
+    "description": "No category yet Message"
+  },
+  "noSuggestion": "No suggestion",
+  "@noSuggestion": {
+    "description": "No suggestion Message"
+  },
+  "noReviewFound": "No review found",
+  "@noReviewFound": {
+    "description": "No review found Message"
+  },
+  "randomRestaurantSnackbar": "{result} was selected!",
+  "@randomRestaurantSnackbar": {
+    "description": "Random Restaurant Snackbar Message",
+    "placeholders": {
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "reviewAddedSnackbar": "Review added!",
+  "@reviewAddedSnackbar": {
+    "description": "Review added Snackbar Message"
+  },
+  "reviewUpdatedSnackbar": "Review updated!",
+  "@reviewUpdatedSnackbar": {
+    "description": "Review updated Snackbar Message"
+  },
+  "reviewDeletedSnackbar": "Review deleted!",
+  "@reviewDeletedSnackbar": {
+    "description": "Review deleted Snackbar Message"
+  },
+  "categoryAddedSnackbar": "Category added!",
+  "@categoryAddedSnackbar": {
+    "description": "Category added Snackbar Message"
+  },
+  "categoryUpdatedSnackbar": "Category updated!",
+  "@categoryUpdatedSnackbar": {
+    "description": "Category updated Snackbar Message"
+  },
+  "categoryDeletedSnackbar": "Category deleted!",
+  "@categoryDeletedSnackbar": {
+    "description": "Category deleted Snackbar Message"
+  },
+  "backUpSuccessSnackbar": "New backup created at {path}!",
+  "@backUpSuccessSnackbar": {
+    "description": "Backup successful Snackbar Message",
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "backUpFailedSnackbar": "Failed to create backup: {e}",
+  "@backUpFailedSnackbar": {
+    "description": "Backup failed Snackbar Message",
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "restoreSuccessSnackbar": "Backup restored!",
+  "@restoreSuccessSnackbar": {
+    "description": "Restore successful Snackbar Message"
+  },
+  "restoreFailedSnackbar": "Failed to restore backup: ",
+  "@restoreFailedSnackbar": {
+    "description": "Restore failed Snackbar Message"
+  },
+  "deleteDatabaseSuccessSnackbar": "Database deleted!",
+  "@deleteDatabaseSuccessSnackbar": {
+    "description": "Delete Database successful Snackbar Message"
+  },
+  "categoriesSetting": "Categories",
+  "@categoriesSetting": {
+    "description": "Categories Setting"
+  },
+  "backupRestoreSetting": "Backup & Restore",
+  "@backupRestoreSetting": {
+    "description": "Backup & Restore Setting"
+  },
+  "backupRestoreSettingSubtitle": "Backup, Restore",
+  "@backupRestoreSettingSubtitle": {
+    "description": "Backup & Restore Setting Subtitle"
+  },
+  "backupSetting": "Backup",
+  "@backupSetting": {
+    "description": "Backup Setting"
+  },
+  "backupSettingSubtitle": "Create a new backup file",
+  "@backupSettingSubtitle": {
+    "description": "Backup Setting Subtitle"
+  },
+  "restoreSetting": "Restore",
+  "@restoreSetting": {
+    "description": "Restore Setting"
+  },
+  "restoreSettingSubtitle": "Restore from a backup file",
+  "@restoreSettingSubtitle": {
+    "description": "Restore Setting Subtitle"
+  },
+  "setting": "Setting",
+  "@setting": {
+    "description": "Setting"
+  },
+  "about": "About",
+  "@about": {
+    "description": "About"
+  },
+  "generalSetting": "General",
+  "@generalSetting": {
+    "description": "General Setting"
+  },
+  "generalSettingSubtitle": "App Language",
+  "@generalSettingSubtitle": {
+    "description": "General Setting Subtitle"
+  },
+  "languageSetting": "Language",
+  "@languageSetting": {
+    "description": "Language Setting"
+  },
+  "appearanceSetting": "Appearance",
+  "@appearanceSetting": {
+    "description": "Appearance Setting"
+  },
+  "appearanceSettingSubtitle": "Theme",
+  "@appearanceSettingSubtitle": {
+    "description": "Appearance Setting Subtitle"
+  },
+  "themeSetting": "Theme",
+  "@themeSetting": {
+    "description": "Theme Setting"
+  },
+  "lightTheme": "Light Theme",
+  "@lightTheme": {
+    "description": "Light Theme"
+  },
+  "darkTheme": "Dark Theme",
+  "@darkTheme": {
+    "description": "Dark Theme"
+  },
+  "systemDefault": "System Default",
+  "@systemDefault": {
+    "description": "System Default"
+  },
+  "librarySetting": "Library",
+  "@librarySetting": {
+    "description": "Library Setting"
+  },
+  "librarySettingSubtitle": "Categories, Display Method",
+  "@librarySettingSubtitle": {
+    "description": "Library Setting Subtitle"
+  },
+  "displaySetting": "Display Method",
+  "@displaySetting": {
+    "description": "Display Method Setting"
+  },
+  "cardView": "Card View",
+  "@cardView": {
+    "description": "Card View"
+  },
+  "listView": "List View",
+  "@listView": {
+    "description": "List View"
+  },
+  "gridView": "Grid View",
+  "@gridView": {
+    "description": "Grid View"
+  },
+  "notificationsSetting": "Notifications",
+  "@notificationsSetting": {
+    "description": "Notifications Setting"
+  },
+  "notificationsSettingSubtitle": "Reminder, Alert",
+  "@notificationsSettingSubtitle": {
+    "description": "Notifications Setting Subtitle"
+  },
+  "breakfastSetting": "Breakfast",
+  "@breakfastSetting": {
+    "description": "Breakfast Setting"
+  },
+  "lunchSetting": "Lunch",
+  "@lunchSetting": {
+    "description": "Lunch Setting"
+  },
+  "dinnerSetting": "Dinner",
+  "@dinnerSetting": {
+    "description": "Dinner Setting"
+  },
+  "breakfastNotificationTitle": "Breakfast!",
+  "@breakfastNotificationTitle": {
+    "description": "Breakfast Notification Title"
+  },
+  "breakfastNotificationMessage": "Morning, time for breakfast!",
+  "@breakfastNotificationMessage": {
+    "description": "Breakfast Notification Message"
+  },
+  "lunchNotificationTitle": "Lunch!",
+  "@lunchNotificationTitle": {
+    "description": "Lunch Notification Title"
+  },
+  "lunchNotificationMessage": "It's time for lunch! Enjoy!",
+  "@lunchNotificationMessage": {
+    "description": "Lunch Notification Message"
+  },
+  "dinnerNotificationTitle": "Dinner!",
+  "@dinnerNotificationTitle": {
+    "description": "Dinner Notification Title"
+  },
+  "dinnerNotificationMessage": "Dinner Time! Check out your favourite restaurant!",
+  "@dinnerNotificationMessage": {
+    "description": "Dinner Notification Message"
+  },
+  "notificationTooltipDialogTitle": "Permission Required",
+  "@notificationTooltipDialogTitle": {
+    "description": "Notification Tooltip Dialog Title"
+  },
+  "notificationTooltipDialogMessage": "Please enable notification and alarm/reminder permission in Settings",
+  "@notificationTooltipDialogMessage": {
+    "description": "Notification Tooltip Dialog Message"
+  },
+  "advancedSetting": "Advanced",
+  "@advancedSetting": {
+    "description": "Advanced Setting"
+  },
+  "advancedSettingSubtitle": "Optimization",
+  "@advancedSettingSubtitle": {
+    "description": "Advanced Setting Subtitle"
+  },
+  "deleteDatabaseSetting": "Delete Database",
+  "@deleteDatabaseSetting": {
+    "description": "Delete Database Setting"
+  },
+  "deleteDatabaseDialogTitle": "Delete Database",
+  "@deleteDatabaseDialogTitle": {
+    "description": "Delete Database Dialog Title"
+  },
+  "deleteDatabaseDialogMessage": "Are you sure you want to delete the database?",
+  "@deleteDatabaseDialogMessage": {
+    "description": "Delete Database Dialog Message"
+  },
+  "reviewNavBar": "Reviews",
+  "@reviewNavBar": {
+    "description": "Reviews Navigation Bar"
+  },
+  "moreNavBar": "More",
+  "@moreNavBar": {
+    "description": "More Navigation Bar"
+  }
+}
