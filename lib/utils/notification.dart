@@ -49,7 +49,7 @@ class NotificationManager {
     try {
       await _notification.zonedSchedule(notificationId, title, message,
           format(scheduledTime), await _notificationDetails(),
-          androidScheduleMode: AndroidScheduleMode.alarmClock,
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime,
           matchDateTimeComponents: DateTimeComponents.time);
