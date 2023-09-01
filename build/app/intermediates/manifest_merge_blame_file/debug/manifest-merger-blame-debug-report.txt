@@ -13,50 +13,50 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\debug\AndroidManifest.xml:6:5-66
-15-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\debug\AndroidManifest.xml:6:22-64
+15-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\debug\AndroidManifest.xml:6:5-66
+15-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\debug\AndroidManifest.xml:6:22-64
 16    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-16-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:2:5-82
-16-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:2:22-79
+16-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:2:5-82
+16-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:2:22-79
 17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-17-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:3:5-79
-17-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:3:22-77
+17-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:3:5-79
+17-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:3:22-77
 18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-18-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:4:5-80
-18-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:4:22-78
+18-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:4:5-80
+18-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:4:22-78
 19    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-19-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:5:5-80
-19-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:5:22-78
+19-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:5:5-80
+19-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:5:22-78
 20    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- For apps with targetSDK=31 (Android 12) -->
-20-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:6:5-67
-20-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:6:22-65
+20-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:6:5-67
+20-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:6:22-65
 21    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-21-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:8:5-78
-21-->C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\AndroidManifest.xml:8:22-76
+21-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:8:5-78
+21-->C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:8:22-76
 22
 23    <queries>
-23-->[:file_picker] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:15
+23-->[:file_picker] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:15
 24        <intent>
-24-->[:file_picker] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-16:18
+24-->[:file_picker] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-16:18
 25            <action android:name="android.intent.action.GET_CONTENT" />
-25-->[:file_picker] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-72
-25-->[:file_picker] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:21-69
+25-->[:file_picker] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-72
+25-->[:file_picker] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:21-69
 26
 27            <data android:mimeType="*/*" />
-27-->[:file_picker] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-44
-27-->[:file_picker] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:19-41
+27-->[:file_picker] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-44
+27-->[:file_picker] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:19-41
 28        </intent>
 29    </queries>
 30
 31    <uses-permission android:name="android.permission.VIBRATE" />
-31-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-66
-31-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-63
+31-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-66
+31-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-63
 32    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
-32-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-81
-32-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-78
+32-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-81
+32-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-78
 33    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-33-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-77
-33-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-74
+33-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-77
+33-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-74
 34
 35    <permission
 35-->[androidx.core:core:1.10.1] C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\17c44a9ee9728471e88635da67cac57c\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
@@ -98,8 +98,8 @@
 66            android:exported="false" >
 67            <intent-filter>
 68                <action android:name="android.intent.action.BOOT_COMPLETED" />
-68-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:17-79
-68-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:25-76
+68-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:17-79
+68-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:25-76
 69            </intent-filter>
 70        </receiver>
 71
@@ -137,66 +137,66 @@
 103            android:value="2" />
 104
 105        <provider
-105-->[:image_picker_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
+105-->[:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
 106            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-106-->[:image_picker_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-82
+106-->[:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-82
 107            android:authorities="com.example.foodreviewapp.flutter.image_provider"
-107-->[:image_picker_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-74
+107-->[:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-74
 108            android:exported="false"
-108-->[:image_picker_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+108-->[:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
 109            android:grantUriPermissions="true" >
-109-->[:image_picker_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
+109-->[:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
 110            <meta-data
-110-->[:image_picker_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:75
+110-->[:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:75
 111                android:name="android.support.FILE_PROVIDER_PATHS"
-111-->[:image_picker_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+111-->[:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
 112                android:resource="@xml/flutter_image_picker_file_paths" />
-112-->[:image_picker_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
+112-->[:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
 113        </provider>
 114
 115        <receiver
-115-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-18:40
+115-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-18:40
 116            android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"
-116-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-91
+116-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-91
 117            android:exported="false" />
-117-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
+117-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
 118        <receiver
-118-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-21:40
+118-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-21:40
 119            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
-119-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-97
+119-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-97
 120            android:exported="false" />
-120-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-37
+120-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-37
 121        <receiver
-121-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:22:9-31:20
+121-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:22:9-31:20
 122            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
-122-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-101
+122-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-101
 123            android:exported="false" >
-123-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-37
+123-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-37
 124            <intent-filter>
-124-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-30:29
+124-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-30:29
 125                <action android:name="android.intent.action.BOOT_COMPLETED" />
-125-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:17-79
-125-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:25-76
+125-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:17-79
+125-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:25-76
 126                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-126-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:27:17-84
-126-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:27:25-81
+126-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:27:17-84
+126-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:27:25-81
 127                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-127-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:28:17-82
-127-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:28:25-79
+127-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:28:17-82
+127-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:28:25-79
 128                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
-128-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:29:17-82
-128-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:29:25-79
+128-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:29:17-82
+128-->[:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:29:25-79
 129            </intent-filter>
 130        </receiver>
 131
 132        <activity
-132-->[:url_launcher_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+132-->[:url_launcher_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
 133            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-133-->[:url_launcher_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+133-->[:url_launcher_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
 134            android:exported="false"
-134-->[:url_launcher_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+134-->[:url_launcher_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
 135            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-135-->[:url_launcher_android] C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+135-->[:url_launcher_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
 136
 137        <uses-library
 137-->[androidx.window:window:1.0.0-beta04] C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\003a22a5515e1f77f89701a46efbc2ec\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
