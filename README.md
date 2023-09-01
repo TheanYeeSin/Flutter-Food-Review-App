@@ -1,4 +1,4 @@
-# foodreviewapp
+# Food Review App
 
 This is a flutter food review app
 
