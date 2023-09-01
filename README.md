@@ -1,4 +1,4 @@
-# Food Review App
+# Tabemashou - Food Review App
 
 This is a flutter food review app
 
