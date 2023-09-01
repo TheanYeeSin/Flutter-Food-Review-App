@@ -367,7 +367,7 @@
   "@restoreSettingSubtitle": {
     "description": "Restore Setting Subtitle"
   },
-  "setting": "Setting",
+  "setting": "Settings",
   "@setting": {
     "description": "Setting"
   },
