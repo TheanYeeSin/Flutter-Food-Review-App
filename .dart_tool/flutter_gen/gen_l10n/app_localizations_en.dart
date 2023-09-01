@@ -274,7 +274,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get restoreSettingSubtitle => 'Restore from a backup file';
 
   @override
-  String get setting => 'Setting';
+  String get setting => 'Settings';
 
   @override
   String get about => 'About';

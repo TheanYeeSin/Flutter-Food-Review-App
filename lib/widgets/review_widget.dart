@@ -151,13 +151,18 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                     children: [
                       SizedBox(
                         width: double.infinity,
-                        height: 150,
+                        height: 160,
                         child: Stack(children: [
                           Center(
                             child: widget.review.image != null
-                                ? Image.memory(widget.review.image!)
+                                ? Image.memory(
+                                    widget.review.image!,
+                                    fit: BoxFit.cover,
+                                  )
                                 : Image.asset(
-                                    'assets/images/default_restaurant.png'),
+                                    'assets/images/default_restaurant.png',
+                                    fit: BoxFit.cover,
+                                  ),
                           ),
                           Positioned(
                               right: 15,
