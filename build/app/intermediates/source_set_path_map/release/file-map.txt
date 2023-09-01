@@ -1,0 +1,33 @@
+com.example.foodreviewapp-jetified-window-1.0.0-beta04-0 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\003a22a5515e1f77f89701a46efbc2ec\transformed\jetified-window-1.0.0-beta04\res
+com.example.foodreviewapp-jetified-lifecycle-viewmodel-savedstate-2.6.1-1 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\04893cd2503497ff301071e96c8684d2\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.1\res
+com.example.foodreviewapp-core-1.10.1-2 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\17c44a9ee9728471e88635da67cac57c\transformed\core-1.10.1\res
+com.example.foodreviewapp-jetified-window-java-1.0.0-beta04-3 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\3c0e35d493ccd3f2bb8b07f96b013b9c\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.foodreviewapp-jetified-annotation-experimental-1.3.0-4 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\3c4bea41a39e2ef91e4e90c0edbcdf3e\transformed\jetified-annotation-experimental-1.3.0\res
+com.example.foodreviewapp-jetified-startup-runtime-1.1.1-5 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\408fee4ac8da76fdf24102328ceae444\transformed\jetified-startup-runtime-1.1.1\res
+com.example.foodreviewapp-lifecycle-livedata-core-2.6.1-6 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\64b8ffec8dd4154ac1e3614196f8ec4b\transformed\lifecycle-livedata-core-2.6.1\res
+com.example.foodreviewapp-media-1.1.0-7 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\69268b5e3785bd8f6c072469c189ef19\transformed\media-1.1.0\res
+com.example.foodreviewapp-lifecycle-livedata-2.6.1-8 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\8b22212788e0b8d25a3b771e8985e15c\transformed\lifecycle-livedata-2.6.1\res
+com.example.foodreviewapp-jetified-activity-1.7.2-9 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\8f243fb3206509199e457d6fc7695a07\transformed\jetified-activity-1.7.2\res
+com.example.foodreviewapp-jetified-core-ktx-1.10.1-10 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\b07364c9ba41f48fb110deff927d2342\transformed\jetified-core-ktx-1.10.1\res
+com.example.foodreviewapp-jetified-savedstate-1.2.1-11 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\b253abfc747a638a3e44a31d80beb1c5\transformed\jetified-savedstate-1.2.1\res
+com.example.foodreviewapp-lifecycle-viewmodel-2.6.1-12 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\b3d73607d96030893210d8ac7d317700\transformed\lifecycle-viewmodel-2.6.1\res
+com.example.foodreviewapp-core-runtime-2.2.0-13 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\c3d1a040da39b00577728d316d17148e\transformed\core-runtime-2.2.0\res
+com.example.foodreviewapp-jetified-profileinstaller-1.3.0-14 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\daa6fd84a99b300a5ffb02c37f933674\transformed\jetified-profileinstaller-1.3.0\res
+com.example.foodreviewapp-lifecycle-runtime-2.6.1-15 C:\Users\Thean Yee Sin\.gradle\caches\transforms-3\fd2525d8e729e998fcd94c2fe920a70e\transformed\lifecycle-runtime-2.6.1\res
+com.example.foodreviewapp-main-16 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\main\res
+com.example.foodreviewapp-release-17 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\android\app\src\release\res
+com.example.foodreviewapp-pngs-18 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\app\generated\res\pngs\release
+com.example.foodreviewapp-resValues-19 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\app\generated\res\resValues\release
+com.example.foodreviewapp-rs-20 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\app\generated\res\rs\release
+com.example.foodreviewapp-mergeReleaseResources-21 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\app\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.example.foodreviewapp-mergeReleaseResources-22 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\app\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.example.foodreviewapp-merged_res-23 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\app\intermediates\merged_res\release
+com.example.foodreviewapp-packaged_res-24 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\file_picker\intermediates\packaged_res\release
+com.example.foodreviewapp-packaged_res-25 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_local_notifications\intermediates\packaged_res\release
+com.example.foodreviewapp-packaged_res-26 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\release
+com.example.foodreviewapp-packaged_res-27 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\image_picker_android\intermediates\packaged_res\release
+com.example.foodreviewapp-packaged_res-28 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\path_provider_android\intermediates\packaged_res\release
+com.example.foodreviewapp-packaged_res-29 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\permission_handler_android\intermediates\packaged_res\release
+com.example.foodreviewapp-packaged_res-30 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\shared_preferences_android\intermediates\packaged_res\release
+com.example.foodreviewapp-packaged_res-31 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\sqflite\intermediates\packaged_res\release
+com.example.foodreviewapp-packaged_res-32 C:\Users\Thean Yee Sin\Desktop\Food Review App\foodreviewapp\build\url_launcher_android\intermediates\packaged_res\release
