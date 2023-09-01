@@ -77,13 +77,16 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                       width: double.infinity,
                       height: 0.5 * MediaQuery.of(context).size.height,
                       child: reviewObject?.image != null
-                          ? Image.memory(reviewObject!.image!)
+                          ? Image.memory(reviewObject!.image!,
+                              fit: BoxFit.cover)
                           : Image.asset(
-                              'assets/images/default_restaurant.png')),
+                              'assets/images/default_restaurant.png',
+                              fit: BoxFit.cover,
+                            )),
                   DraggableScrollableSheet(
                     maxChildSize: 1,
-                    initialChildSize: 0.55,
-                    minChildSize: 0.55,
+                    initialChildSize: 0.50,
+                    minChildSize: 0.50,
                     builder: (context, scrollController) =>
                         SingleChildScrollView(
                       controller: scrollController,

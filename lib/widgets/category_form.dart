@@ -6,6 +6,7 @@ import 'package:foodreviewapp/database/database_service.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:foodreviewapp/models/review.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:foodreviewapp/utils/image.dart';
 
 class CategoryForm extends StatefulWidget {
   final Category? category;
@@ -168,7 +169,8 @@ class _CategoryFormState extends State<CategoryForm> {
                       categoryDescriptionController.value.text.trim();
                   Uint8List? imgString;
                   if (_image != null) {
-                    imgString = _image!.readAsBytesSync();
+                    imgString =
+                        await resizeAndCompressImage(_image!.readAsBytesSync());
                   } else if (widget.category?.image != null) {
                     imgString = widget.category!.image;
                   } else {

@@ -8,6 +8,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:foodreviewapp/models/category.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:foodreviewapp/utils/image.dart';
 
 class ReviewForm extends StatefulWidget {
   final Review? review;
@@ -331,7 +332,8 @@ class _ReviewFormState extends State<ReviewForm> {
                       final isFavourite = widget.review?.isFavourite ?? false;
                       Uint8List? imgString;
                       if (_image != null) {
-                        imgString = _image!.readAsBytesSync();
+                        imgString = await resizeAndCompressImage(
+                            _image!.readAsBytesSync());
                       } else if (widget.review?.image != null) {
                         imgString = widget.review!.image;
                       } else {

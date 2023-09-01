@@ -618,7 +618,7 @@ abstract class AppLocalizations {
   /// Setting
   ///
   /// In en, this message translates to:
-  /// **'Setting'**
+  /// **'Settings'**
   String get setting;
 
   /// About
