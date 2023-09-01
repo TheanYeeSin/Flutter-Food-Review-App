@@ -12,11 +12,30 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  final PageController _pageController = PageController(initialPage: 0);
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
+    _pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController.addListener(() {
+      setState(() {
+        _selectedIndex = _pageController.page?.round() ?? 0;
+      });
     });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   final List<Widget> _children = [
@@ -28,7 +47,11 @@ class _HomeScreenState extends State<HomeScreen> {
     final colorScheme = Theme.of(context).colorScheme;
     // final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      body: _children[_selectedIndex],
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: _onItemTapped,
+        children: _children,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
