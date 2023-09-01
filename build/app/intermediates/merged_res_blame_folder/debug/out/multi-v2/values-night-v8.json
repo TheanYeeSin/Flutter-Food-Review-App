@@ -4,7 +4,7 @@
             "outputFile": "com.example.foodreviewapp-mergeDebugResources-21:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Thean Yee Sin\\Desktop\\Food Review App\\foodreviewapp\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\Thean Yee Sin\\Tabemashou-Food-Review-App\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
