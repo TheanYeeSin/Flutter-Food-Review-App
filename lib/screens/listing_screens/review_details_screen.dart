@@ -125,6 +125,7 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                           children: [
                                             const Icon(Icons.star,
                                                 color: Colors.amber, size: 24),
+                                            const SizedBox(width: 2),
                                             Text(
                                               "${reviewObject?.rating.toString()}",
                                               style: const TextStyle(
@@ -135,11 +136,11 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                           ],
                                         ),
                                       ]),
-                                  const SizedBox(height: 16),
+                                  const SizedBox(height: 20),
                                   //-----Location-----
                                   Row(
                                     children: [
-                                      const Icon(Icons.location_on),
+                                      const Icon(Icons.location_on_outlined),
                                       Flexible(
                                         child: Text(
                                           "${reviewObject?.location}",
@@ -153,18 +154,25 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                   ),
                                   const Padding(
                                       padding:
-                                          EdgeInsets.symmetric(vertical: 15),
+                                          EdgeInsets.symmetric(vertical: 20),
                                       child: Divider(
                                         height: 4,
                                         thickness: 2,
                                       )),
                                   //-----Description-----
-                                  Text(
-                                      AppLocalizations.of(context)!.description,
-                                      style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold)),
-                                  const SizedBox(height: 8),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.description_outlined),
+                                      const SizedBox(width: 5),
+                                      Text(
+                                          AppLocalizations.of(context)!
+                                              .description,
+                                          style: const TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 12),
                                   Text(
                                     "${reviewObject?.description}",
                                     style: const TextStyle(
@@ -173,16 +181,22 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                   ),
                                   const Padding(
                                       padding:
-                                          EdgeInsets.symmetric(vertical: 15),
+                                          EdgeInsets.symmetric(vertical: 20),
                                       child: Divider(height: 4, thickness: 2)),
                                   //-----Food Available-----
-                                  Text(
-                                      AppLocalizations.of(context)!
-                                          .foodAvailable,
-                                      style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold)),
-                                  const SizedBox(height: 5),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.lunch_dining_outlined),
+                                      const SizedBox(width: 5),
+                                      Text(
+                                          AppLocalizations.of(context)!
+                                              .foodAvailable,
+                                          style: const TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 9),
                                   SizedBox(
                                     height: 30,
                                     child: ListView.builder(
@@ -206,16 +220,22 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                   ),
                                   const Padding(
                                       padding:
-                                          EdgeInsets.symmetric(vertical: 15),
+                                          EdgeInsets.symmetric(vertical: 20),
                                       child: Divider(height: 4, thickness: 2)),
                                   //-----Additional Review-----
-                                  Text(
-                                      AppLocalizations.of(context)!
-                                          .additionalReview,
-                                      style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold)),
-                                  const SizedBox(height: 8),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.comment_outlined),
+                                      const SizedBox(width: 5),
+                                      Text(
+                                          AppLocalizations.of(context)!
+                                              .additionalReview,
+                                          style: const TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 12),
                                   Text(
                                     reviewObject?.additionalReview != null
                                         ? "${reviewObject?.additionalReview}"
@@ -227,7 +247,7 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                   ),
                                   const Padding(
                                       padding:
-                                          EdgeInsets.symmetric(vertical: 15),
+                                          EdgeInsets.symmetric(vertical: 20),
                                       child: Divider(height: 4, thickness: 2)),
                                   //-----Link-----
                                   Row(
@@ -236,8 +256,8 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
-                                              color:
-                                                  Colors.grey), // Border color
+                                              color: Colors.grey,
+                                              width: 2), // Border color
                                         ),
                                         child: IconButton(
                                             onPressed: () async {
@@ -257,8 +277,8 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
-                                              color:
-                                                  Colors.grey), // Border color
+                                              color: Colors.grey,
+                                              width: 2), // Border color
                                         ),
                                         child: IconButton(
                                             onPressed: () async {
@@ -278,12 +298,12 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                   ),
                                   const Padding(
                                       padding:
-                                          EdgeInsets.symmetric(vertical: 15),
+                                          EdgeInsets.symmetric(vertical: 20),
                                       child: Divider(height: 4, thickness: 2)),
                                   //-----Edit and Delete Button-----
                                   Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         ElevatedButton(
                                             onPressed: () async {
@@ -389,7 +409,7 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                             ))
                                       ]),
                                   const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 15),
+                                    padding: EdgeInsets.symmetric(vertical: 20),
                                   ),
                                 ],
                               ),

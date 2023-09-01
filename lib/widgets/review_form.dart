@@ -267,7 +267,7 @@ class _ReviewFormState extends State<ReviewForm> {
                       direction: Axis.horizontal,
                       allowHalfRating: true,
                       itemCount: 10,
-                      itemSize: 32,
+                      itemSize: 28,
                       itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
                       itemBuilder: (context, _) => const Icon(
                             Icons.star,

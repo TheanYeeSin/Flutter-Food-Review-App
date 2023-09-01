@@ -3,6 +3,7 @@ import 'package:foodreviewapp/screens/settings_screens/backup_restore_setting_sc
 import 'package:foodreviewapp/screens/settings_screens/category_setting_screen.dart';
 import 'package:foodreviewapp/screens/settings_screens/main_settings_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -77,7 +78,14 @@ class _MoreScreenState extends State<MoreScreen> {
                     ListTile(
                       leading: const Icon(Icons.info),
                       title: Text(AppLocalizations.of(context)!.about),
-                      onTap: () {},
+                      onTap: () async {
+                        final url = Uri.parse(
+                            'https://github.com/TheanYeeSin/Tabemashou-Food-Review-App');
+                        if (!await launchUrl(url,
+                            mode: LaunchMode.externalApplication)) {
+                          throw Exception('Could not launch $url');
+                        }
+                      },
                     ),
                   ],
                 ),
