@@ -4,6 +4,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:flutter_timezone/flutter_timezone.dart';
 
 class NotificationManager {
   static final FlutterLocalNotificationsPlugin _notification =
@@ -48,7 +49,7 @@ class NotificationManager {
     }
     try {
       await _notification.zonedSchedule(notificationId, title, message,
-          format(scheduledTime), await _notificationDetails(),
+          await format(scheduledTime), await _notificationDetails(),
           androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime,
@@ -62,10 +63,14 @@ class NotificationManager {
     await _notification.cancel(notificationId);
   }
 
-  static tz.TZDateTime format(TimeOfDay scheduledTime) {
+  static Future<tz.TZDateTime> format(TimeOfDay scheduledTime) async {
     /// Date and time format
-    final now = tz.TZDateTime.now(tz.local);
-    final scheduledDateTime = tz.TZDateTime(tz.local, now.year, now.month,
+
+    final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
+    final location = tz.getLocation(currentTimeZone);
+    final now = tz.TZDateTime.now(location);
+
+    final scheduledDateTime = tz.TZDateTime(location, now.year, now.month,
         now.day, scheduledTime.hour, scheduledTime.minute, 0);
     return scheduledDateTime.isBefore(now)
         ? scheduledDateTime.add(const Duration(days: 1))

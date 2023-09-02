@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:9:5-61:19
+INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:10:5-62:19
 MERGED from [:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-32:19
@@ -22,12 +22,13 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Th
 	android:name
 		INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-62:12
-INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-62:12
-INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-62:12
-INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-62:12
-MERGED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-62:12
+ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-63:12
+INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-63:12
+INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-63:12
+INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-63:12
+MERGED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-63:12
 MERGED from [:shared_preferences_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_timezone] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_timezone\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:permission_handler_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:file_picker] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:image_picker_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
@@ -67,15 +68,15 @@ INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\
 INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 	package
 		INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-62:12
+		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-63:12
 		INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-62:12
+		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-63:12
 		INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-62:12
+		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:1-63:12
 		INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:1:11-69
@@ -109,12 +110,18 @@ MERGED from [:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Foo
 MERGED from [:flutter_local_notifications] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-79
 	android:name
 		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:8:22-76
+uses-permission#android.permission.USE_EXACT_ALARM
+ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:9:5-74
+	android:name
+		ADDED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml:9:22-71
 uses-sdk
 INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\android\app\src\main\AndroidManifest.xml
 MERGED from [:shared_preferences_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:shared_preferences_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_timezone] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_timezone\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_timezone] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\flutter_timezone\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:permission_handler_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:permission_handler_android] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:file_picker] C:\Users\Thean Yee Sin\Tabemashou-Food-Review-App\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
