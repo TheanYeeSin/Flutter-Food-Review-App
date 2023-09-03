@@ -43,7 +43,7 @@ class _CounterWidgetState extends State<CounterWidget> {
     return Container(
         margin: const EdgeInsets.only(right: 5.0, left: 5.0),
         padding:
-            const EdgeInsets.only(top: 2.0, bottom: 2.0, left: 5.0, right: 5.0),
+            const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.grey[600]!),
             borderRadius: BorderRadius.circular(5.0),
