@@ -5,6 +5,7 @@ import 'package:foodreviewapp/database/database_service.dart';
 import 'package:foodreviewapp/models/category.dart';
 import 'package:foodreviewapp/screens/form_screens/review_form_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:foodreviewapp/widgets/counter_widget.dart';
 
 class MainListingScreen extends StatefulWidget {
   const MainListingScreen({super.key});
@@ -19,10 +20,35 @@ class _MainListingScreenState extends State<MainListingScreen> {
     return DatabaseService.getAllCategories();
   }
 
+  Future<int> _countAllReview() async {
+    var reviews = await DatabaseService.getAllReviews();
+    return reviews?.length ?? 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.reviewTitle)),
+      appBar: AppBar(
+          title: Row(
+        children: [
+          Text(AppLocalizations.of(context)!.reviewTitle),
+          const SizedBox(width: 10),
+          FutureBuilder(
+              future: _countAllReview(),
+              builder: (context, AsyncSnapshot<int> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(
+                      child: Text(
+                          'Something went wrong! Error: ${snapshot.error}'));
+                } else if (snapshot.hasData && snapshot.data != null) {
+                  return CounterWidget(count: snapshot.data);
+                }
+                return const CounterWidget(count: 0);
+              })
+        ],
+      )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -33,7 +59,7 @@ class _MainListingScreenState extends State<MainListingScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(
-                    width: 165,
+                    width: 160,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey[300],
@@ -60,7 +86,7 @@ class _MainListingScreenState extends State<MainListingScreen> {
                         )),
                   ),
                   SizedBox(
-                    width: 165,
+                    width: 160,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.grey[300],
