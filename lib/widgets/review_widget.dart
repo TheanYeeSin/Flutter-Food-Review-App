@@ -68,10 +68,15 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                   : const Icon(Icons.favorite_border),
               onPressed: _toggleFavourite,
             ),
-            IconButton(
-              icon: const Icon(Icons.arrow_forward),
-              onPressed: widget.onPressed,
-            ),
+            Row(children: [
+              const Icon(
+                Icons.star,
+                color: Colors.amber,
+              ),
+              Text(
+                widget.review.rating.toString(),
+              ),
+            ])
           ],
         ),
         onTap: widget.onPressed,
@@ -99,6 +104,18 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                           ? Image.memory(widget.review.image!)
                           : Image.asset('assets/images/default_restaurant.png'),
                     ),
+                    Positioned(
+                        left: 2,
+                        top: 15,
+                        child: Row(children: [
+                          const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          Text(
+                            widget.review.rating.toString(),
+                          ),
+                        ])),
                     Positioned(
                         right: 2,
                         top: 2,
@@ -132,6 +149,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
         ),
       );
     } else {
+      // CardView display mode
       return Padding(
         padding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
         child: Card(
@@ -151,7 +169,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                     children: [
                       SizedBox(
                         width: double.infinity,
-                        height: 160,
+                        height: 150,
                         child: Stack(children: [
                           Center(
                             child: widget.review.image != null

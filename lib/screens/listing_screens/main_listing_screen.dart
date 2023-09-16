@@ -59,7 +59,7 @@ class _MainListingScreenState extends State<MainListingScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(
-                    width: 160,
+                    width: 155,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey[300],
@@ -86,7 +86,7 @@ class _MainListingScreenState extends State<MainListingScreen> {
                         )),
                   ),
                   SizedBox(
-                    width: 160,
+                    width: 155,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.grey[300],

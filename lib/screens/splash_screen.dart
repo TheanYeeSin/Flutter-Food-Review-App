@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (_) => const HomeScreen(),
       ));
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
             const Text('Tabemashou',
                 style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold)),
             const SizedBox(height: 20.0),
-            const CircularProgressIndicator(color: Colors.red),
+            const LinearProgressIndicator(color: Colors.yellowAccent),
           ]),
         ),
       ),
