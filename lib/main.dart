@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:foodreviewapp/utils/notification.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodreviewapp/utils/display.dart';
+import 'package:foodreviewapp/screens/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +36,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomeScreen(),
+      home: const SplashScreen(),
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: context.watch<ThemeManager>().themeMode,
