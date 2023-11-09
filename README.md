@@ -8,6 +8,17 @@ This is a flutter food review app
 
 <img alt="Dart" src="https://img.shields.io/badge/dart-%230175C2.svg?&style=for-the-badge&logo=dart&logoColor=white"/>
 
+### To Install
+```
+git clone
+```
+
+Open an Android Emulator
+
+```
+Flutter run
+```
+
 ### Functions
 
 - Add new reviews
