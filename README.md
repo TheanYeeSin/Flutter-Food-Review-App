@@ -16,7 +16,7 @@ git clone
 Open an Android Emulator
 
 ```
-Flutter run
+flutter run
 ```
 
 ### Functions
