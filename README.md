@@ -8,7 +8,11 @@ This is a flutter food review app, created to solve a personal problem of mine, 
 
 <img alt="Dart" src="https://img.shields.io/badge/dart-%230175C2.svg?&style=for-the-badge&logo=dart&logoColor=white"/>
 
-## Installation
+## Installation For Personal Use
+
+> https://github.com/TheanYeeSin/Tabemashou-Food-Review-App/releases
+
+## Installation For Development
 ```
 git clone
 ```
