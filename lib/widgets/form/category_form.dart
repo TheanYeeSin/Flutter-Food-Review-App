@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foodreviewapp/models/category.dart';
 import 'package:foodreviewapp/database/database_service.dart';
+import 'package:foodreviewapp/utils/validator.dart';
+import 'package:foodreviewapp/widgets/common/custom_form_field.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:foodreviewapp/models/review.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -71,149 +73,136 @@ class _CategoryFormState extends State<CategoryForm> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
-      child: Form(
-        key: _formKey,
-        child: Column(children: [
-          TextFormField(
-            controller: categoryNameController,
-            decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                labelText: AppLocalizations.of(context)!.categoryName),
-            validator: (value) {
-              if (value == null || value.isEmpty || value.trim().isEmpty) {
-                return AppLocalizations.of(context)!.enterCategoryNameError;
-              }
-              return null;
-            },
-          ),
-          const SizedBox(height: 16),
-          TextFormField(
-            controller: categoryDescriptionController,
-            decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                labelText: AppLocalizations.of(context)!.categoryDescription),
-            validator: (value) {
-              if (value == null || value.isEmpty || value.trim().isEmpty) {
-                return AppLocalizations.of(context)!
-                    .enterCategoryDescriptionError;
-              }
-              return null;
-            },
-          ),
-          const SizedBox(height: 16),
-          if (_image != null) ...[
-            Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(
-                      color: Colors.grey,
-                      width: 1,
-                    )),
-                width: 200,
-                height: 200,
-                child: Image.file(_image!)),
-            const SizedBox(height: 16),
-          ],
-          _image == null
-              ? ElevatedButton(
-                  onPressed: pickImage,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.image),
-                        const SizedBox(width: 10),
-                        Text(widget.category == null
-                            ? AppLocalizations.of(context)!.uploadCategoryImage
-                            : AppLocalizations.of(context)!
-                                .updateCategoryImage),
-                      ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              //-----Category Name-----
+              CustomFormField(
+                controller: categoryNameController,
+                labelText: AppLocalizations.of(context)!.categoryName,
+                errorText: AppLocalizations.of(context)!.enterCategoryNameError,
+                prefixIcon: const Icon(Icons.catching_pokemon_outlined),
+                readOnly: false,
+                validator: requiredString,
+                margin: const EdgeInsets.only(bottom: 16),
+              ),
+              //-----Category Description-----
+              CustomFormField(
+                controller: categoryDescriptionController,
+                labelText: AppLocalizations.of(context)!.categoryDescription,
+                errorText:
+                    AppLocalizations.of(context)!.enterCategoryDescriptionError,
+                prefixIcon: const Icon(Icons.description_outlined),
+                readOnly: false,
+                validator: requiredString,
+                margin: const EdgeInsets.only(bottom: 16),
+              ),
+              _image == null
+                  ? ElevatedButton(
+                      onPressed: pickImage,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 18),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.image),
+                            const SizedBox(width: 10),
+                            Text(
+                              widget.category == null
+                                  ? AppLocalizations.of(context)!
+                                      .uploadCategoryImage
+                                  : AppLocalizations.of(context)!
+                                      .updateCategoryImage,
+                              style: const TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  : OutlinedButton(
+                      onPressed: pickImage,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 18),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.image),
+                            const SizedBox(width: 10),
+                            Text(
+                              AppLocalizations.of(context)!
+                                  .categoryImageUploaded,
+                              style: const TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                )
-              : OutlinedButton(
-                  onPressed: pickImage,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.image),
-                        const SizedBox(width: 10),
-                        Text(AppLocalizations.of(context)!
-                            .categoryImageUploaded),
-                      ],
-                    ),
-                  ),
-                ),
-          const SizedBox(height: 16),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text(AppLocalizations.of(context)!.cancelButton),
-            ),
-            const VerticalDivider(
-              width: 20,
-              thickness: 5,
-              indent: 20,
-              endIndent: 0,
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                if (_formKey.currentState!.validate()) {
-                  final name = categoryNameController.value.text.trim();
-                  final description =
-                      categoryDescriptionController.value.text.trim();
-                  Uint8List? imgString;
-                  if (_image != null) {
-                    imgString =
-                        await resizeAndCompressImage(_image!.readAsBytesSync());
-                  } else if (widget.category?.image != null) {
-                    imgString = widget.category!.image;
-                  } else {
-                    imgString = null;
-                  }
-                  final Category newCategory = Category(
-                    id: widget.category?.id,
-                    name: name,
-                    description: description,
-                    image: imgString,
-                  );
-                  if (widget.category == null) {
-                    await DatabaseService.addCategory(newCategory);
-                    // ignore: use_build_context_synchronously
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      // ignore: use_build_context_synchronously
-                      content: Text(
-                          AppLocalizations.of(context)!.categoryAddedSnackbar,
-                          style: const TextStyle(color: Colors.black)),
-                      backgroundColor: Colors.green[100],
-                    ));
-                  } else {
-                    _updateReviewCategory(oldCategoryName!, name);
-                    await DatabaseService.updateCategory(newCategory);
-                    // ignore: use_build_context_synchronously
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      // ignore: use_build_context_synchronously
-                      content: Text(
-                          AppLocalizations.of(context)!.categoryUpdatedSnackbar,
-                          style: const TextStyle(color: Colors.black)),
-                      backgroundColor: Colors.green[100],
-                    ));
-                  }
-                  // ignore: use_build_context_synchronously
-                  Navigator.pop(context);
-                }
-              },
-              child: Text(widget.category == null
-                  ? AppLocalizations.of(context)!.addButton
-                  : AppLocalizations.of(context)!.editButton),
-            )
-          ])
-        ]),
+              const SizedBox(height: 16),
+              if (_image != null) ...[
+                Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1,
+                        )),
+                    width: double.infinity,
+                    height: 200,
+                    child: Image.file(_image!)),
+              ],
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          if (_formKey.currentState!.validate()) {
+            final name = categoryNameController.value.text.trim();
+            final description = categoryDescriptionController.value.text.trim();
+            Uint8List? imgString;
+            if (_image != null) {
+              imgString =
+                  await resizeAndCompressImage(_image!.readAsBytesSync());
+            } else if (widget.category?.image != null) {
+              imgString = widget.category!.image;
+            } else {
+              imgString = null;
+            }
+            final Category newCategory = Category(
+              id: widget.category?.id,
+              name: name,
+              description: description,
+              image: imgString,
+            );
+            if (widget.category == null) {
+              await DatabaseService.addCategory(newCategory);
+              // ignore: use_build_context_synchronously
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                // ignore: use_build_context_synchronously
+                content: Text(
+                    AppLocalizations.of(context)!.categoryAddedSnackbar,
+                    style: const TextStyle(color: Colors.black)),
+                backgroundColor: Colors.green[100],
+              ));
+            } else {
+              _updateReviewCategory(oldCategoryName!, name);
+              await DatabaseService.updateCategory(newCategory);
+              // ignore: use_build_context_synchronously
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                // ignore: use_build_context_synchronously
+                content: Text(
+                    AppLocalizations.of(context)!.categoryUpdatedSnackbar,
+                    style: const TextStyle(color: Colors.black)),
+                backgroundColor: Colors.green[100],
+              ));
+            }
+            // ignore: use_build_context_synchronously
+            Navigator.pop(context);
+          }
+        },
+        child: const Icon(Icons.check),
       ),
     );
   }
