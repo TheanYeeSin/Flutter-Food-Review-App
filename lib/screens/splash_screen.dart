@@ -32,23 +32,25 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Center(
-              child: SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: Theme.of(context).brightness == Brightness.light
-                      ? Image.asset('assets/icons/logo.png')
-                      : Image.asset('assets/icons/logo_white.png')),
-            ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+                width: 300,
+                height: 300,
+                child: Theme.of(context).brightness == Brightness.light
+                    ? Image.asset('assets/icons/logo.png')
+                    : Image.asset('assets/icons/logo_white.png')),
             const Text('Tabemashou',
                 style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold)),
+            const Text("たべましょう",
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w100)),
             const SizedBox(height: 20.0),
             const LinearProgressIndicator(color: Colors.yellowAccent),
-          ]),
+            const SizedBox(height: 125.0),
+          ],
         ),
       ),
     );
