@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:foodreviewapp/models/category.dart';
 import 'package:foodreviewapp/widgets/counter_widget.dart';
 
