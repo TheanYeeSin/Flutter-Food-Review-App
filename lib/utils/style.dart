@@ -16,6 +16,11 @@ ThemeData lightTheme = ThemeData(
           fontFamily: String.fromEnvironment('poppins')),
       actionsIconTheme: const IconThemeData(color: Colors.black),
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Colors.grey[350],
+      elevation: 2,
+      selectedItemColor: Colors.blue,
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
@@ -67,6 +72,11 @@ ThemeData darkTheme = ThemeData(
     primaryColor: Colors.lightBlue,
     brightness: Brightness.dark,
     fontFamily: GoogleFonts.poppins().fontFamily,
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Color(0xFF141414),
+      elevation: 2,
+      selectedItemColor: Colors.lightBlue,
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlue),

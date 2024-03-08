@@ -53,7 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
         children: _children,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(Icons.reviews),
@@ -65,9 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        backgroundColor: colorScheme.surface,
-        selectedFontSize: 15,
-        selectedItemColor: colorScheme.onSurface,
+        selectedFontSize: 17,
         selectedIconTheme: const IconThemeData(size: 30),
         unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
         onTap: _onItemTapped,
