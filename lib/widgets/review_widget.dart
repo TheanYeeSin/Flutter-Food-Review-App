@@ -64,8 +64,8 @@ class _ReviewWidgetState extends State<ReviewWidget> {
           children: [
             IconButton(
               icon: isFavourite
-                  ? const Icon(Icons.favorite)
-                  : const Icon(Icons.favorite_border),
+                  ? const Icon(Icons.favorite, color: Colors.red)
+                  : const Icon(Icons.favorite_border, color: Colors.red),
               onPressed: _toggleFavourite,
             ),
             Row(children: [
@@ -121,11 +121,13 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                         top: 2,
                         child: isFavourite
                             ? IconButton(
-                                icon: const Icon(Icons.favorite),
+                                icon: const Icon(Icons.favorite,
+                                    color: Colors.red),
                                 onPressed: _toggleFavourite,
                               )
                             : IconButton(
-                                icon: const Icon(Icons.favorite_border),
+                                icon: const Icon(Icons.favorite_border,
+                                    color: Colors.red),
                                 onPressed: _toggleFavourite)),
                   ],
                 ),
@@ -187,11 +189,13 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                               top: 15,
                               child: isFavourite
                                   ? IconButton(
-                                      icon: const Icon(Icons.favorite),
+                                      icon: const Icon(Icons.favorite,
+                                          color: Colors.red),
                                       onPressed: _toggleFavourite,
                                     )
                                   : IconButton(
-                                      icon: const Icon(Icons.favorite_border),
+                                      icon: const Icon(Icons.favorite_border,
+                                          color: Colors.red),
                                       onPressed: _toggleFavourite)),
                         ]),
                       ),

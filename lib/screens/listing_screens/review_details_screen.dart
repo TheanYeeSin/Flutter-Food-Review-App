@@ -57,11 +57,14 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
           isFavourite
               ? IconButton(
                   onPressed: _toggleFavourite,
-                  icon: const Icon(Icons.favorite),
+                  icon: const Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  ),
                 )
               : IconButton(
                   onPressed: _toggleFavourite,
-                  icon: const Icon(Icons.favorite_border),
+                  icon: const Icon(Icons.favorite_border, color: Colors.red),
                 ),
         ],
       ),

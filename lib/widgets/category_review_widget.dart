@@ -44,21 +44,18 @@ class _CategoryReviewWidgetState extends State<CategoryReviewWidget> {
                         )
                       : Image.asset('assets/images/default_category.png'),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.category.name,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                      const SizedBox(width: 10),
-                      CounterWidget(
-                        columnName: 'categories',
-                        columnValue: widget.category.name,
-                      ),
-                    ],
+                const SizedBox(width: 10),
+                Flexible(
+                  child: Text(
+                    widget.category.name,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  child: CounterWidget(
+                    columnName: 'categories',
+                    columnValue: widget.category.name,
                   ),
                 ),
               ],

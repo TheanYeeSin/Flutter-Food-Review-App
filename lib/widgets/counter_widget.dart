@@ -43,10 +43,10 @@ class _CounterWidgetState extends State<CounterWidget> {
     return Container(
         margin: const EdgeInsets.only(right: 5.0, left: 5.0),
         padding:
-            const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 5.0, right: 5.0),
+            const EdgeInsets.only(top: 2.0, bottom: 2.0, left: 8.0, right: 8.0),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.grey[600]!),
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(20.0),
             color: Colors.grey[400]),
         child: Text('$reviewCount',
             style: const TextStyle(

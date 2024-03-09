@@ -5,6 +5,8 @@ import 'package:foodreviewapp/database/database_service.dart';
 import 'package:foodreviewapp/models/category.dart';
 import 'package:foodreviewapp/screens/form_screens/review_form_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:foodreviewapp/widgets/common/custom_divider.dart';
+import 'package:foodreviewapp/widgets/common/navigation_button.dart';
 import 'package:foodreviewapp/widgets/counter_widget.dart';
 
 class MainListingScreen extends StatefulWidget {
@@ -54,71 +56,45 @@ class _MainListingScreenState extends State<MainListingScreen> {
         children: [
           const SizedBox(height: 8),
           Expanded(
-              flex: 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: 155,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey[300],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              side: const BorderSide(color: Colors.grey),
-                            )),
-                        onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ReviewListingScreen(),
-                            ),
-                          );
-                          setState(() {});
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            const Icon(Icons.all_inbox, color: Colors.black),
-                            Text(AppLocalizations.of(context)!.allReviews,
-                                style: const TextStyle(color: Colors.black)),
-                          ],
-                        )),
-                  ),
-                  SizedBox(
-                    width: 155,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[300],
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            side: const BorderSide(color: Colors.grey),
-                          )),
-                      onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ReviewListingScreen(
-                                columnName: 'isFavourite',
-                                columnValue: '1',
-                                titleValue: AppLocalizations.of(context)!
-                                    .myFavouritesTitle),
-                          ),
-                        );
-                        setState(() {});
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          const Icon(Icons.favorite, color: Colors.black),
-                          Text(AppLocalizations.of(context)!.myFavourites,
-                              style: const TextStyle(color: Colors.black)),
-                        ],
+            flex: 1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                NavigationButton(
+                  icon: const Icon(Icons.all_inbox, color: Colors.black),
+                  labelText: AppLocalizations.of(context)!.allReviews,
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ReviewListingScreen(),
                       ),
-                    ),
-                  )
-                ],
-              )),
+                    );
+                    setState(() {});
+                  },
+                ),
+                NavigationButton(
+                  icon: const Icon(Icons.favorite, color: Colors.red),
+                  labelText: AppLocalizations.of(context)!.myFavorites,
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ReviewListingScreen(
+                            columnName: 'isFavourite',
+                            columnValue: '1',
+                            titleValue:
+                                AppLocalizations.of(context)!.myFavoritesTitle),
+                      ),
+                    );
+                    setState(() {});
+                  },
+                ),
+              ],
+            ),
+          ),
+          const CustomDivider(
+              symmetricPadding: 8, dividerHeight: 4, dividerThickness: 2),
           Expanded(
             flex: 8,
             child: FutureBuilder<List<Category>?>(

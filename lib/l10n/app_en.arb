@@ -11,9 +11,9 @@
   "@randomRestaurantTitle": {
     "description": "Random Restaurant Title on the App Bar"
   },
-  "myFavouritesTitle": "My Favourites",
-  "@myFavouritesTitle": {
-    "description": "My Favourites Title on the App Bar"
+  "myFavoritesTitle": "My Favorites",
+  "@myFavoritesTitle": {
+    "description": "My Favorites Title on the App Bar"
   },
   "categoriesSettingTitle": "Categories Setting",
   "@categoriesSettingTitle": {
@@ -63,9 +63,9 @@
   "@allReviews": {
     "description": "All Reviews Button"
   },
-  "myFavourites": "My Favourites",
-  "@myFavourites": {
-    "description": "My Favourites Button"
+  "myFavorites": "My Favorites",
+  "@myFavorites": {
+    "description": "My Favorites Button"
   },
   "allTitle": "All",
   "@allTitle": {
