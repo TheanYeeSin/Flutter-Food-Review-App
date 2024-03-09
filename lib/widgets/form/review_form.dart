@@ -7,6 +7,7 @@ import 'package:foodreviewapp/utils/validator.dart';
 import 'package:foodreviewapp/widgets/category_selection_dialog.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:foodreviewapp/models/category.dart';
+import 'package:foodreviewapp/widgets/common/custom_divider.dart';
 import 'package:foodreviewapp/widgets/common/custom_form_field.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -121,9 +122,11 @@ class _ReviewFormState extends State<ReviewForm> {
                       Icons.account_box,
                     ),
                   ),
-                  const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 4),
-                      child: Divider(height: 4, thickness: 2)),
+                  const CustomDivider(
+                    symmetricPadding: 4,
+                    dividerHeight: 4,
+                    dividerThickness: 2,
+                  ),
                   ListTile(
                     onTap: () {
                       pickImage(ImageSource.camera);
