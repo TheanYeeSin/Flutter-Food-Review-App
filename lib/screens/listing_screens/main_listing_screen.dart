@@ -32,8 +32,20 @@ class _MainListingScreenState extends State<MainListingScreen> {
     return Scaffold(
       appBar: AppBar(
           title: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(AppLocalizations.of(context)!.reviewTitle),
+          Container(
+            margin: const EdgeInsets.only(left: 2, right: 10),
+            width: 25,
+            height: 25,
+            child: Theme.of(context).brightness == Brightness.light
+                ? Image.asset('assets/icons/logo_with_less_padding.png')
+                : Image.asset('assets/icons/logo_white_with_less_padding.png'),
+          ),
+          Text(
+            AppLocalizations.of(context)!.reviewTitle,
+            style: const TextStyle(fontSize: 22),
+          ),
           const SizedBox(width: 10),
           FutureBuilder(
               future: _countAllReview(),
