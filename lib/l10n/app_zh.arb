@@ -38,6 +38,8 @@
   "deleteReviewButton": "删除评论",
   "deleteReviewDialogTitle": "删除评论",
   "deleteReviewDialogMessage": "你确定要删除这条评论吗？",
+  "searchRestaurantOnlineButton": "搜寻餐厅",
+  "searchLocationOnlineButton": "搜寻位置",
   "no": "不",
   "yes": "是",
   "pickImage": "选择图片",

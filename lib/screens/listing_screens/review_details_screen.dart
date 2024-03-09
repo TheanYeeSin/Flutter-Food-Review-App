@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:foodreviewapp/models/review.dart';
 import 'package:foodreviewapp/screens/form_screens/review_form_screen.dart';
 import 'package:foodreviewapp/database/database_service.dart';
+import 'package:foodreviewapp/widgets/common/custom_divider.dart';
+import 'package:foodreviewapp/widgets/common/review_details_field.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class ReviewDetailsScreen extends StatefulWidget {
   final int reviewId;
@@ -107,87 +110,106 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        //-----Restaurant Name-----
-                                        Flexible(
-                                          child: Text(
-                                            "${reviewObject?.restaurantName}",
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      //-----Restaurant Name-----
+                                      Flexible(
+                                        child: Text(
+                                          "${reviewObject?.restaurantName}",
+                                          style: const TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      //-----Rating-----
+                                      Row(
+                                        children: [
+                                          const Icon(Icons.star,
+                                              color: Colors.amber, size: 26),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            "${reviewObject?.rating.toString()}",
                                             style: const TextStyle(
                                               fontSize: 24,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                        ),
-                                        //-----Rating-----
-                                        Row(
-                                          children: [
-                                            const Icon(Icons.star,
-                                                color: Colors.amber, size: 24),
-                                            const SizedBox(width: 2),
-                                            Text(
-                                              "${reviewObject?.rating.toString()}",
-                                              style: const TextStyle(
-                                                fontSize: 24,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ]),
-                                  const SizedBox(height: 20),
-                                  //-----Location-----
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.location_on_outlined),
-                                      Flexible(
-                                        child: Text(
-                                          "${reviewObject?.location}",
-                                          style: const TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                        ],
                                       ),
                                     ],
                                   ),
-                                  const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 20),
-                                      child: Divider(
-                                        height: 4,
-                                        thickness: 2,
-                                      )),
-                                  //-----Description-----
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.description_outlined),
-                                      const SizedBox(width: 5),
-                                      Text(
-                                          AppLocalizations.of(context)!
-                                              .description,
-                                          style: const TextStyle(
-                                              fontSize: 22,
-                                              fontWeight: FontWeight.bold)),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 12),
-                                  Text(
-                                    "${reviewObject?.description}",
-                                    style: const TextStyle(
-                                      fontSize: 16,
+                                  const SizedBox(height: 20),
+
+                                  //-----Category-----
+                                  if (reviewObject?.categories != null &&
+                                      reviewObject!.categories!.isNotEmpty) ...[
+                                    SizedBox(
+                                      height: 30,
+                                      child: ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount:
+                                            reviewObject?.categories?.length,
+                                        itemBuilder: (context, index) =>
+                                            Container(
+                                          margin:
+                                              const EdgeInsets.only(right: 8),
+                                          child: Chip(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(
+                                                  8.0), // Set the desired border radius
+                                            ),
+                                            side: BorderSide(
+                                                color: Theme.of(context)
+                                                            .brightness ==
+                                                        Brightness.light
+                                                    ? Colors.black
+                                                    : Colors.white,
+                                                width: 1,
+                                                style: BorderStyle.solid),
+                                            label: Text(
+                                              "#${reviewObject?.categories?[index]}",
+                                            ),
+                                            backgroundColor: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                          ),
+                                        ),
+                                      ),
                                     ),
+                                    const SizedBox(height: 20),
+                                  ],
+                                  //-----Location-----
+                                  ReviewDetailsField(
+                                      icon: const Icon(
+                                        Icons.location_on_outlined,
+                                      ),
+                                      title: AppLocalizations.of(context)!
+                                          .location,
+                                      content: reviewObject?.location),
+                                  const CustomDivider(
+                                    symmetricPadding: 20,
+                                    dividerHeight: 4,
+                                    dividerThickness: 3,
                                   ),
-                                  const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 20),
-                                      child: Divider(height: 4, thickness: 2)),
+                                  //-----Description-----
+                                  ReviewDetailsField(
+                                      icon: const Icon(
+                                          Icons.description_outlined),
+                                      title: AppLocalizations.of(context)!
+                                          .description,
+                                      content: reviewObject?.description),
+                                  const CustomDivider(
+                                    symmetricPadding: 20,
+                                    dividerHeight: 4,
+                                    dividerThickness: 3,
+                                  ),
                                   //-----Food Available-----
                                   Row(
                                     children: [
                                       const Icon(Icons.lunch_dining_outlined),
-                                      const SizedBox(width: 5),
+                                      const SizedBox(width: 8),
                                       Text(
                                           AppLocalizations.of(context)!
                                               .foodAvailable,
@@ -196,220 +218,35 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                               fontWeight: FontWeight.bold)),
                                     ],
                                   ),
-                                  const SizedBox(height: 9),
-                                  SizedBox(
-                                    height: 30,
-                                    child: ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount:
-                                          reviewObject?.foodAvailable.length,
-                                      itemBuilder: (context, index) =>
-                                          Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 10),
-                                        child: Chip(
-                                          label: Text(
-                                            "${reviewObject?.foodAvailable[index]}",
-                                          ),
+                                  const SizedBox(height: 14),
+                                  Wrap(
+                                    spacing: 8,
+                                    runSpacing: -4,
+                                    children: [
+                                      for (var food
+                                          in reviewObject?.foodAvailable ?? [])
+                                        Chip(
+                                          label: Text("$food"),
                                           backgroundColor: Theme.of(context)
                                               .colorScheme
                                               .tertiary,
                                         ),
-                                      ),
-                                    ),
+                                    ],
                                   ),
-                                  const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 20),
-                                      child: Divider(height: 4, thickness: 2)),
+
+                                  const CustomDivider(
+                                    symmetricPadding: 20,
+                                    dividerHeight: 4,
+                                    dividerThickness: 3,
+                                  ),
                                   //-----Additional Review-----
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.comment_outlined),
-                                      const SizedBox(width: 5),
-                                      Text(
-                                          AppLocalizations.of(context)!
-                                              .additionalReview,
-                                          style: const TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold)),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 12),
-                                  Text(
-                                    reviewObject?.additionalReview != null
-                                        ? "${reviewObject?.additionalReview}"
-                                        : AppLocalizations.of(context)!
+                                  ReviewDetailsField(
+                                    icon: const Icon(Icons.comment_outlined),
+                                    title: AppLocalizations.of(context)!
+                                        .additionalReview,
+                                    content: reviewObject?.additionalReview ??
+                                        AppLocalizations.of(context)!
                                             .noAdditionalReview,
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                  const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 20),
-                                      child: Divider(height: 4, thickness: 2)),
-                                  //-----Link-----
-                                  Row(
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                              color: Colors.grey,
-                                              width: 2), // Border color
-                                        ),
-                                        child: IconButton(
-                                            onPressed: () async {
-                                              final url = Uri.parse(
-                                                  'https://www.google.com/search?q=${reviewObject?.restaurantName} restaurant');
-                                              if (!await launchUrl(url,
-                                                  mode: LaunchMode
-                                                      .externalApplication)) {
-                                                throw Exception(
-                                                    'Could not launch $url');
-                                              }
-                                            },
-                                            icon: const Icon(Icons.search)),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                              color: Colors.grey,
-                                              width: 2), // Border color
-                                        ),
-                                        child: IconButton(
-                                            onPressed: () async {
-                                              final url = Uri.parse(
-                                                  'https://www.google.com/maps/search/${reviewObject?.location}');
-                                              if (!await launchUrl(url,
-                                                  mode: LaunchMode
-                                                      .externalApplication)) {
-                                                throw Exception(
-                                                    'Could not launch $url');
-                                              }
-                                            },
-                                            icon: const Icon(
-                                                Icons.location_on_sharp)),
-                                      ),
-                                    ],
-                                  ),
-                                  const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 20),
-                                      child: Divider(height: 4, thickness: 2)),
-                                  //-----Edit and Delete Button-----
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        ElevatedButton(
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      ReviewFormScreen(
-                                                          review: reviewObject),
-                                                ),
-                                              );
-                                              _getReview();
-                                            },
-                                            child: Row(
-                                              children: [
-                                                const Icon(Icons.edit),
-                                                Text(AppLocalizations.of(
-                                                        context)!
-                                                    .editReviewButton)
-                                              ],
-                                            )),
-                                        ElevatedButton(
-                                            onPressed: () async {
-                                              showDialog(
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return AlertDialog(
-                                                        title: Center(
-                                                          child: Text(
-                                                              AppLocalizations.of(
-                                                                      context)!
-                                                                  .deleteReviewButton),
-                                                        ),
-                                                        content: Text(
-                                                            AppLocalizations.of(
-                                                                    context)!
-                                                                .deleteReviewDialogMessage),
-                                                        actions: [
-                                                          ButtonBar(
-                                                            alignment:
-                                                                MainAxisAlignment
-                                                                    .spaceEvenly,
-                                                            children: [
-                                                              TextButton(
-                                                                onPressed: () {
-                                                                  Navigator.pop(
-                                                                      context);
-                                                                },
-                                                                child: Text(
-                                                                    AppLocalizations.of(
-                                                                            context)!
-                                                                        .no),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed:
-                                                                    () async {
-                                                                  await DatabaseService
-                                                                      .deleteReview(
-                                                                          reviewObject!);
-                                                                  // ignore: use_build_context_synchronously
-                                                                  Navigator.pop(
-                                                                      context);
-                                                                  // ignore: use_build_context_synchronously
-                                                                  Navigator.pop(
-                                                                      context);
-                                                                  // ignore: use_build_context_synchronously
-                                                                  ScaffoldMessenger.of(
-                                                                          context)
-                                                                      .showSnackBar(
-                                                                          SnackBar(
-                                                                    content: Text(
-                                                                        // ignore: use_build_context_synchronously
-                                                                        AppLocalizations.of(context)!.reviewDeletedSnackbar,
-                                                                        style: const TextStyle(color: Colors.black)),
-                                                                    backgroundColor:
-                                                                        Colors.green[
-                                                                            100],
-                                                                  ));
-                                                                },
-                                                                child: Text(
-                                                                    AppLocalizations.of(
-                                                                            context)!
-                                                                        .yes,
-                                                                    style: const TextStyle(
-                                                                        color: Colors
-                                                                            .red)),
-                                                              ),
-                                                            ],
-                                                          )
-                                                        ]);
-                                                  });
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                                backgroundColor:
-                                                    Colors.redAccent),
-                                            child: Row(
-                                              children: [
-                                                const Icon(Icons.delete),
-                                                Text(AppLocalizations.of(
-                                                        context)!
-                                                    .deleteReviewButton)
-                                              ],
-                                            ))
-                                      ]),
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 20),
                                   ),
                                 ],
                               ),
@@ -433,6 +270,109 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                   ),
                 ],
               ),
+      ),
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.list_view,
+        renderOverlay: false,
+        children: [
+          //-----Delete button-----
+          SpeedDialChild(
+            child: const Icon(Icons.delete),
+            label: AppLocalizations.of(context)!.deleteReviewButton,
+            backgroundColor: Colors.redAccent,
+            onTap: () async {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Center(
+                      child: Text(
+                          AppLocalizations.of(context)!.deleteReviewButton),
+                    ),
+                    content: Text(AppLocalizations.of(context)!
+                        .deleteReviewDialogMessage),
+                    actions: [
+                      ButtonBar(
+                        alignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(AppLocalizations.of(context)!.no),
+                          ),
+                          TextButton(
+                            onPressed: () async {
+                              await DatabaseService.deleteReview(reviewObject!);
+                              // ignore: use_build_context_synchronously
+                              Navigator.pop(context);
+                              // ignore: use_build_context_synchronously
+                              Navigator.pop(context);
+                              // ignore: use_build_context_synchronously
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    // ignore: use_build_context_synchronously
+                                    AppLocalizations.of(context)!
+                                        .reviewDeletedSnackbar,
+                                    style: const TextStyle(color: Colors.black),
+                                  ),
+                                  backgroundColor: Colors.green[100],
+                                ),
+                              );
+                            },
+                            child: Text(
+                              AppLocalizations.of(context)!.yes,
+                              style: const TextStyle(color: Colors.red),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  );
+                },
+              );
+            },
+          ),
+          //-----Edit button-----
+          SpeedDialChild(
+            child: const Icon(Icons.edit),
+            label: AppLocalizations.of(context)!.editReviewButton,
+            onTap: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ReviewFormScreen(review: reviewObject),
+                ),
+              );
+              _getReview();
+            },
+          ),
+          //-----Search Restaurant button-----
+          SpeedDialChild(
+            child: const Icon(Icons.search),
+            label: AppLocalizations.of(context)!.searchRestaurantOnlineButton,
+            onTap: () async {
+              final url = Uri.parse(
+                  'https://www.google.com/search?q=${reviewObject?.restaurantName} restaurant');
+              if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                throw Exception('Could not launch $url');
+              }
+            },
+          ),
+          //-----Search Location button-----
+          SpeedDialChild(
+            child: const Icon(Icons.location_on_sharp),
+            label: AppLocalizations.of(context)!.searchLocationOnlineButton,
+            onTap: () async {
+              final url = Uri.parse(
+                  'https://www.google.com/maps/search/${reviewObject?.location}');
+              if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                throw Exception('Could not launch $url');
+              }
+            },
+          ),
+        ],
       ),
     );
   }
