@@ -3,6 +3,10 @@
   "@reviewTitle": {
     "description": "Reviews Title on the App Bar"
   },
+  "checklistTitle": "Restaurant Checklist",
+  "@checklistTitle": {
+    "description": "Restaurant Checklist Title on the App Bar"
+  },
   "searchTitle": "Search",
   "@searchTitle": {
     "description": "Search Title on the App Bar"
@@ -50,6 +54,14 @@
   "editCategoryTitle": "Edit Category",
   "@editCategoryTitle": {
     "description": "Edit Category Title on the App Bar"
+  },
+  "addChecklistItemTitle": "Add Checklist Item",
+  "@addChecklistItemTitle": {
+    "description": "Add Checklist Item Title on the App Bar"
+  },
+  "editChecklistItemTitle": "Edit Checklist Item",
+  "@editChecklistItemTitle": {
+    "description": "Edit Checklist Item Title on the App Bar"
   },
   "backupRestoreSettingTitle": "Backup & Restore Setting",
   "@backupRestoreSettingTitle": {
@@ -122,6 +134,10 @@
   "noAdditionalReview": "No Additional Review",
   "@noAdditionalReview": {
     "description": "No Additional Review"
+  },
+  "checklistItem": "Checklist Item",
+  "@checklistItem": {
+    "description": "New Checklist Item"
   },
   "selectCategoriesButton": "Select Categories",
   "@selectCategories": {
@@ -231,6 +247,14 @@
   "@deleteCategoryDialogMessage": {
     "description": "Delete Category Dialog Message"
   },
+  "deleteChecklistItemDialogTitle": "Delete Checklist Item",
+  "@deleteChecklistItemDialogTitle": {
+    "description": "Delete Checklist Item Dialog Title"
+  },
+  "deleteChecklistItemDialogMessage": "Are you sure you want to delete this checklist item?",
+  "@deleteChecklistItemDialogMessage": {
+    "description": "Delete Checklist Item Dialog Message"
+  },
   "enterRestaurantNameError": "Please enter a restaurant name",
   "@enterRestaurantNameError": {
     "description": "Please enter a restaurant name Error Message"
@@ -246,6 +270,10 @@
   "enterFoodAvailableError": "Please enter food available",
   "@enterFoodAvailableError": {
     "description": "Please enter food available Error Message"
+  },
+  "enterChecklistItemNameError": "Please enter a name for the new checklist item",
+  "@enterChecklistItemNameError": {
+    "description": "Please enter name for checklist item Error Message"
   },
   "enterCategoryNameError": "Please enter a category name",
   "@enterCategoryNameError": {
@@ -275,6 +303,10 @@
   "noCategoryYet": "No category yet",
   "@noCategoryYet": {
     "description": "No category yet Message"
+  },
+  "noChecklistItemYet": "No checklist item yet",
+  "@noChecklistYet": {
+    "description": "No checklist item yet Message"
   },
   "noSuggestion": "No suggestion",
   "@noSuggestion": {
@@ -316,6 +348,18 @@
   "categoryDeletedSnackbar": "Category deleted!",
   "@categoryDeletedSnackbar": {
     "description": "Category deleted Snackbar Message"
+  },
+  "checklistItemAddedSnackbar": "Checklist Item added!",
+  "@checklistItemAddedSnackbar": {
+    "description": "Checklist Item added Snackbar Message"
+  },
+  "checklistItemUpdatedSnackbar": "Checklist Item updated!",
+  "@checklistItemUpdatedSnackbar": {
+    "description": "Checklist Item updated Snackbar Message"
+  },
+  "checklistItemDeletedSnackbar": "Checklist Item deleted!",
+  "@checklistItemDeletedSnackbar": {
+    "description": "Checklist Item deleted Snackbar Message"
   },
   "backUpSuccessSnackbar": "New backup created at {path}!",
   "@backUpSuccessSnackbar": {
@@ -518,6 +562,10 @@
   "reviewNavBar": "Reviews",
   "@reviewNavBar": {
     "description": "Reviews Navigation Bar"
+  },
+  "checklistNavBar": "Checklist",
+  "@checklistNavBar": {
+    "description": "Checklist Navigation Bar"
   },
   "moreNavBar": "More",
   "@moreNavBar": {

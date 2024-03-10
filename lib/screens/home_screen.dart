@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodreviewapp/screens/listing_screens/checklist_listing_screen.dart';
 import 'package:foodreviewapp/screens/more_screen.dart';
 import 'package:foodreviewapp/screens/listing_screens/main_listing_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,10 +12,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-  final PageController _pageController = PageController(initialPage: 0);
+  int _selectedIndex = 1;
+  final PageController _pageController = PageController(initialPage: 1);
 
   void _onItemTapped(int index) {
+    if (_selectedIndex == index) {
+      return;
+    }
     _pageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 200),
@@ -27,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _pageController.addListener(() {
       setState(() {
-        _selectedIndex = _pageController.page?.round() ?? 0;
+        _selectedIndex = _pageController.page?.round() ?? 1;
       });
     });
   }
@@ -39,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   final List<Widget> _children = [
+    const ChecklistListingScreen(),
     const MainListingScreen(),
     const MoreScreen()
   ];
@@ -54,6 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.checklist_rounded),
+            label: AppLocalizations.of(context)!.checklistNavBar,
+          ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.reviews),
             label: AppLocalizations.of(context)!.reviewNavBar,

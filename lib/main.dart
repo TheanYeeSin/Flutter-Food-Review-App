@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodreviewapp/l10n/l10n.dart';
-import 'package:foodreviewapp/screens/home_screen.dart';
 import 'package:foodreviewapp/utils/style.dart';
 import 'package:foodreviewapp/utils/language.dart';
 import 'package:provider/provider.dart';

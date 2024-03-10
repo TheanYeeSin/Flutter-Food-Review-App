@@ -251,6 +251,7 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                         AppLocalizations.of(context)!
                                             .noAdditionalReview,
                                   ),
+                                  const SizedBox(height: 20),
                                 ],
                               ),
                             ),
