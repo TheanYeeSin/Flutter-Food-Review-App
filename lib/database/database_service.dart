@@ -207,6 +207,18 @@ class DatabaseService {
     }
   }
 
+  static Future<List<ChecklistItem>?> getUncheckChecklistItem() async {
+    final db = await _getDatabase();
+    final List<Map<String, dynamic>> maps = await db
+        .query(checklistItemTableName, where: 'isChecked = ?', whereArgs: [0]);
+    if (maps.isNotEmpty) {
+      return List.generate(
+          maps.length, (index) => ChecklistItem.fromJson(maps[index]));
+    } else {
+      throw Exception('Checklist not found');
+    }
+  }
+
   static Future<int> updateChecklistItemChecked(int id, int isChecked) async {
     final db = await _getDatabase();
     return await db.update(checklistItemTableName, {'isChecked': isChecked},

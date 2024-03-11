@@ -5,8 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ReviewFormScreen extends StatefulWidget {
   final Review? review;
-
-  const ReviewFormScreen({super.key, this.review});
+  final String? restaurantName;
+  const ReviewFormScreen({super.key, this.review, this.restaurantName});
 
   @override
   State<ReviewFormScreen> createState() => _ReviewFormScreenState();
@@ -21,7 +21,10 @@ class _ReviewFormScreenState extends State<ReviewFormScreen> {
             ? AppLocalizations.of(context)!.addReviewTitle
             : AppLocalizations.of(context)!.editReviewTitle),
       ),
-      body: ReviewForm(review: widget.review),
+      body: ReviewForm(
+        review: widget.review,
+        restaurantName: widget.restaurantName,
+      ),
     );
   }
 }

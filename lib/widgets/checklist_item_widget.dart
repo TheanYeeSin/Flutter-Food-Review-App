@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodreviewapp/database/database_service.dart';
 import 'package:foodreviewapp/models/checklist_item.dart';
+import 'package:foodreviewapp/screens/form_screens/review_form_screen.dart';
 
 class ChecklistItemWidget extends StatefulWidget {
   final ChecklistItem checklistItem;
@@ -31,6 +32,17 @@ class _ChecklistItemWidgetState extends State<ChecklistItemWidget> {
     setState(() {
       isChecked = !isChecked;
     });
+    if (isChecked) {
+      // ignore: use_build_context_synchronously
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ReviewFormScreen(
+            restaurantName: widget.checklistItem.name,
+          ),
+        ),
+      );
+    }
   }
 
   @override
@@ -43,7 +55,9 @@ class _ChecklistItemWidgetState extends State<ChecklistItemWidget> {
           borderRadius: BorderRadius.circular(20),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        tileColor: Colors.grey.withOpacity(0.35),
+        tileColor: isChecked
+            ? Colors.grey.withOpacity(0.15)
+            : Colors.grey.withOpacity(0.45),
         leading: IconButton(
           icon: isChecked
               ? const Icon(Icons.check_circle_outlined)

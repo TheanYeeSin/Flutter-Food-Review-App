@@ -15,7 +15,8 @@ import 'package:foodreviewapp/utils/image.dart';
 
 class ReviewForm extends StatefulWidget {
   final Review? review;
-  const ReviewForm({super.key, this.review});
+  final String? restaurantName;
+  const ReviewForm({super.key, this.review, this.restaurantName});
 
   @override
   State<ReviewForm> createState() => _ReviewFormState();
@@ -49,6 +50,8 @@ class _ReviewFormState extends State<ReviewForm> {
       _ratingController = widget.review!.rating;
       reviewController.text = widget.review!.additionalReview ?? "";
       _selectedCategories = widget.review!.categories!;
+    } else if (widget.restaurantName != null) {
+      restaurantNameController.text = widget.restaurantName!;
     }
   }
 
