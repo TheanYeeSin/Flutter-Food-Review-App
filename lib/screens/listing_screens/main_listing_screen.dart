@@ -189,29 +189,6 @@ class _MainListingScreenState extends State<MainListingScreen> {
                               ))
                     ],
                   );
-
-                  // return ListView.builder(
-                  //   itemBuilder: (context, index) {
-                  //     return CategoryReviewWidget(
-                  //       category: snapshot.data![index],
-                  //       onPressed: () async {
-                  //         await Navigator.push(
-                  //           context,
-                  //           MaterialPageRoute(
-                  //             builder: (context) => ReviewListingScreen(
-                  //               columnName: 'categories',
-                  //               columnValue: snapshot.data![index].name,
-                  //               titleValue: snapshot.data![index].name,
-                  //               description: snapshot.data![index].description,
-                  //             ),
-                  //           ),
-                  //         );
-                  //         setState(() {});
-                  //       },
-                  //     );
-                  //   },
-                  //   itemCount: snapshot.data!.length,
-                  // );
                 }
                 return Center(
                     child: Text(AppLocalizations.of(context)!.noReviewYet));
