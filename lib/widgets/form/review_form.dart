@@ -202,6 +202,7 @@ class _ReviewFormState extends State<ReviewForm> {
                   Expanded(
                     child: CustomFormField(
                       controller: restaurantNameController,
+                      height: 62,
                       labelText: AppLocalizations.of(context)!.restaurantName,
                       errorText: AppLocalizations.of(context)!
                           .enterRestaurantNameError,
@@ -211,6 +212,7 @@ class _ReviewFormState extends State<ReviewForm> {
                       margin: const EdgeInsets.only(right: 16),
                     ),
                   ),
+                  //-----Select Categories Button-----
                   SizedBox(
                     width: 110,
                     height: 62,
@@ -246,6 +248,7 @@ class _ReviewFormState extends State<ReviewForm> {
               //-----Location-----
               CustomFormField(
                 controller: locationController,
+                height: 62,
                 labelText: AppLocalizations.of(context)!.location,
                 errorText: AppLocalizations.of(context)!.enterLocationError,
                 prefixIcon: const Icon(Icons.location_on),
@@ -256,6 +259,7 @@ class _ReviewFormState extends State<ReviewForm> {
               //-----Description-----
               CustomFormField(
                 controller: descriptionController,
+                height: 62,
                 labelText: AppLocalizations.of(context)!.description,
                 errorText: AppLocalizations.of(context)!.enterDescriptionError,
                 prefixIcon: const Icon(Icons.description),
@@ -266,6 +270,7 @@ class _ReviewFormState extends State<ReviewForm> {
               //-----Food Available-----
               CustomFormField(
                 controller: foodAvailableController,
+                height: 62,
                 labelText: AppLocalizations.of(context)!.foodAvailable,
                 errorText:
                     AppLocalizations.of(context)!.enterFoodAvailableError,

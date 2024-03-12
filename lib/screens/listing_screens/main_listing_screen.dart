@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodreviewapp/screens/listing_screens/review_listing_screen.dart';
+import 'package:foodreviewapp/utils/display.dart';
 import 'package:foodreviewapp/widgets/category_review_widget.dart';
 import 'package:foodreviewapp/database/database_service.dart';
 import 'package:foodreviewapp/models/category.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodreviewapp/widgets/common/custom_divider.dart';
 import 'package:foodreviewapp/widgets/common/navigation_button.dart';
 import 'package:foodreviewapp/widgets/counter_widget.dart';
+import 'package:provider/provider.dart';
 
 class MainListingScreen extends StatefulWidget {
   const MainListingScreen({super.key});
@@ -29,6 +31,8 @@ class _MainListingScreenState extends State<MainListingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    int selectedDisplayMode =
+        context.watch<DisplayManager>().categoryDisplayMode;
     return Scaffold(
       appBar: AppBar(
           title: Row(
@@ -119,28 +123,95 @@ class _MainListingScreenState extends State<MainListingScreen> {
                       child: Text(
                           'Something went wrong! Error: ${snapshot.error}'));
                 } else if (snapshot.hasData && snapshot.data != null) {
-                  return ListView.builder(
-                    itemBuilder: (context, index) {
-                      return CategoryReviewWidget(
-                        category: snapshot.data![index],
-                        onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ReviewListingScreen(
-                                columnName: 'categories',
-                                columnValue: snapshot.data![index].name,
-                                titleValue: snapshot.data![index].name,
-                                description: snapshot.data![index].description,
+                  return CustomScrollView(
+                    slivers: [
+                      selectedDisplayMode != 1
+                          ? SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                                (BuildContext context, int index) {
+                                  return CategoryReviewWidget(
+                                    category: snapshot.data![index],
+                                    onPressed: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ReviewListingScreen(
+                                            columnName: 'categories',
+                                            columnValue:
+                                                snapshot.data![index].name,
+                                            titleValue:
+                                                snapshot.data![index].name,
+                                            description: snapshot
+                                                .data![index].description,
+                                          ),
+                                        ),
+                                      );
+                                      setState(() {});
+                                    },
+                                  );
+                                },
+                                childCount: snapshot.data!.length,
                               ),
-                            ),
-                          );
-                          setState(() {});
-                        },
-                      );
-                    },
-                    itemCount: snapshot.data!.length,
+                            )
+                          : SliverGrid(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2, // Adjust as needed
+                                mainAxisSpacing: 4,
+                                crossAxisSpacing: 4,
+                              ),
+                              delegate: SliverChildBuilderDelegate(
+                                (context, index) {
+                                  return CategoryReviewWidget(
+                                    category: snapshot.data![index],
+                                    onPressed: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ReviewListingScreen(
+                                            columnName: 'categories',
+                                            columnValue:
+                                                snapshot.data![index].name,
+                                            titleValue:
+                                                snapshot.data![index].name,
+                                            description: snapshot
+                                                .data![index].description,
+                                          ),
+                                        ),
+                                      );
+                                      setState(() {});
+                                    },
+                                  );
+                                },
+                                childCount: snapshot.data!.length,
+                              ))
+                    ],
                   );
+
+                  // return ListView.builder(
+                  //   itemBuilder: (context, index) {
+                  //     return CategoryReviewWidget(
+                  //       category: snapshot.data![index],
+                  //       onPressed: () async {
+                  //         await Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //             builder: (context) => ReviewListingScreen(
+                  //               columnName: 'categories',
+                  //               columnValue: snapshot.data![index].name,
+                  //               titleValue: snapshot.data![index].name,
+                  //               description: snapshot.data![index].description,
+                  //             ),
+                  //           ),
+                  //         );
+                  //         setState(() {});
+                  //       },
+                  //     );
+                  //   },
+                  //   itemCount: snapshot.data!.length,
+                  // );
                 }
                 return Center(
                     child: Text(AppLocalizations.of(context)!.noReviewYet));

@@ -70,7 +70,7 @@ class _ReviewListingScreenState extends State<ReviewListingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    int selectedDisplayMode = context.watch<DisplayManager>().displayMode;
+    int selectedDisplayMode = context.watch<DisplayManager>().reviewDisplayMode;
     return Scaffold(
         appBar: AppBar(
           title:

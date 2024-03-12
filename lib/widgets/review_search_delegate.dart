@@ -58,7 +58,7 @@ class ReviewSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    int selectedDisplayMode = context.watch<DisplayManager>().displayMode;
+    int selectedDisplayMode = context.watch<DisplayManager>().reviewDisplayMode;
     return FutureBuilder<List<Review>?>(
         future: _getReviews(),
         builder: (context, AsyncSnapshot<List<Review>?> snapshot) {

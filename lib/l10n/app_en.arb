@@ -471,9 +471,13 @@
   "@librarySettingSubtitle": {
     "description": "Library Setting Subtitle"
   },
-  "displaySetting": "Display Method",
-  "@displaySetting": {
-    "description": "Display Method Setting"
+  "reviewDisplaySetting": "Review Display Method",
+  "@reviewDisplaySetting": {
+    "description": "Review Display Method Setting"
+  },
+  "categoryDisplaySetting": "Category Display Method",
+  "@categoryDisplaySetting": {
+    "description": "Category Display Method Setting"
   },
   "cardView": "Card View",
   "@cardView": {

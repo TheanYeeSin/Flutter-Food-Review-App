@@ -15,20 +15,33 @@ class LibrarySettingScreen extends StatefulWidget {
 class _LibrarySettingScreenState extends State<LibrarySettingScreen> {
   @override
   Widget build(BuildContext context) {
-    int selectedDisplayMode = context.watch<DisplayManager>().displayMode;
-    void updateDisplayMode(int? displayMode) {
+    int selectedReviewDisplayMode =
+        context.watch<DisplayManager>().reviewDisplayMode;
+    int selectedCategoryDisplayMode =
+        context.watch<DisplayManager>().categoryDisplayMode;
+
+    void updateReviewDisplayMode(int? displayMode) {
       if (displayMode != null) {
-        selectedDisplayMode = displayMode;
-        context.read<DisplayManager>().toggleDisplayMode(
+        selectedReviewDisplayMode = displayMode;
+        context.read<DisplayManager>().toggleReviewDisplayMode(
+            displayMode); // Update the theme using the provider
+      }
+    }
+
+    void updateCategoryDisplayMode(int? displayMode) {
+      if (displayMode != null) {
+        selectedCategoryDisplayMode = displayMode;
+        context.read<DisplayManager>().toggleCategoryDisplayMode(
             displayMode); // Update the theme using the provider
       }
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.appearanceSettingTitle),
-        ),
-        body: ListView(children: [
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.appearanceSettingTitle),
+      ),
+      body: ListView(
+        children: [
           ListTile(
             leading: const Icon(Icons.tag),
             title: Text(AppLocalizations.of(context)!.categoriesSetting),
@@ -43,10 +56,10 @@ class _LibrarySettingScreenState extends State<LibrarySettingScreen> {
           ),
           ListTile(
             leading: const Icon(Icons.view_carousel_outlined),
-            title: Text(AppLocalizations.of(context)!.displaySetting),
+            title: Text(AppLocalizations.of(context)!.reviewDisplaySetting),
             trailing: DropdownButton(
-              value: selectedDisplayMode,
-              onChanged: updateDisplayMode,
+              value: selectedReviewDisplayMode,
+              onChanged: updateReviewDisplayMode,
               items: [
                 DropdownMenuItem(
                   value: 0,
@@ -62,7 +75,27 @@ class _LibrarySettingScreenState extends State<LibrarySettingScreen> {
                 ),
               ],
             ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.view_array_outlined),
+            title: Text(AppLocalizations.of(context)!.categoryDisplaySetting),
+            trailing: DropdownButton(
+              value: selectedCategoryDisplayMode,
+              onChanged: updateCategoryDisplayMode,
+              items: [
+                DropdownMenuItem(
+                  value: 0,
+                  child: Text(AppLocalizations.of(context)!.listView),
+                ),
+                DropdownMenuItem(
+                  value: 1,
+                  child: Text(AppLocalizations.of(context)!.gridView),
+                ),
+              ],
+            ),
           )
-        ]));
+        ],
+      ),
+    );
   }
 }

@@ -4,6 +4,7 @@ import 'package:foodreviewapp/utils/validator.dart';
 class CustomFormField<T> extends StatelessWidget {
   final TextEditingController? controller;
   final int? maxLines;
+  final double? height;
   final String labelText;
   final String? errorText;
   final Widget prefixIcon;
@@ -16,6 +17,7 @@ class CustomFormField<T> extends StatelessWidget {
     super.key,
     this.controller,
     this.maxLines,
+    this.height,
     required this.labelText,
     this.errorText,
     required this.prefixIcon,
@@ -29,6 +31,7 @@ class CustomFormField<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
+      height: height,
       child: TextFormField(
         readOnly: readOnly,
         controller: controller,

@@ -34,7 +34,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    int selectedDisplayMode = context.watch<DisplayManager>().displayMode;
+    int selectedDisplayMode = context.watch<DisplayManager>().reviewDisplayMode;
 
     if (selectedDisplayMode == 1) {
       // ListView display mode
