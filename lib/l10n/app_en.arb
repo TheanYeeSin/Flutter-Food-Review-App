@@ -459,6 +459,30 @@
   "@darkTheme": {
     "description": "Dark Theme"
   },
+  "colorThemeSetting": "Color Theme",
+  "@colorThemeSetting": {
+    "description": "Color Theme Setting"
+  },
+  "redSetting": "Red",
+  "@redSetting": {
+    "description": "Red Setting"
+  },
+  "yellowSetting": "Yellow",
+  "@yellowSetting": {
+    "description": "Yellow Setting"
+  },
+  "blueSetting": "Blue",
+  "@blueSetting": {
+    "description": "Blue Setting"
+  },
+  "greenSetting": "Green",
+  "@greenSetting": {
+    "description": "Green Setting"
+  },
+  "purpleSetting": "Purple",
+  "@purpleSetting": {
+    "description": "Purple Setting"
+  },
   "systemDefault": "System Default",
   "@systemDefault": {
     "description": "System Default"

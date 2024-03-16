@@ -36,8 +36,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const SplashScreen(),
-      theme: lightTheme,
-      darkTheme: darkTheme,
+      theme: lightTheme(context),
+      darkTheme: darkTheme(context),
       themeMode: context.watch<ThemeManager>().themeMode,
       supportedLocales: L10n.all,
       localizationsDelegates: const [

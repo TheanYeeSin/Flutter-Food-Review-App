@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodreviewapp/utils/color.dart';
 import 'package:foodreviewapp/utils/style.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -15,6 +16,7 @@ class _AppearanceSettingScreenState extends State<AppearanceSettingScreen> {
   @override
   Widget build(BuildContext context) {
     ThemeMode selectedThemeMode = context.watch<ThemeManager>().themeMode;
+    ColorOption selectedColorMode = context.watch<ThemeManager>().colorMode;
     void updateTheme(ThemeMode? themeMode) {
       if (themeMode != null) {
         selectedThemeMode = themeMode;
@@ -24,11 +26,21 @@ class _AppearanceSettingScreenState extends State<AppearanceSettingScreen> {
       }
     }
 
+    void updateColor(ColorOption? colorMode) {
+      if (colorMode != null) {
+        selectedColorMode = colorMode;
+        context
+            .read<ThemeManager>()
+            .toggleColor(colorMode); // Update the color using the provider
+      }
+    }
+
     return Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.appearanceSettingTitle),
-        ),
-        body: ListView(children: [
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.appearanceSettingTitle),
+      ),
+      body: ListView(
+        children: [
           ListTile(
             leading: const Icon(Icons.brush_outlined),
             title: Text(AppLocalizations.of(context)!.themeSetting),
@@ -50,7 +62,39 @@ class _AppearanceSettingScreenState extends State<AppearanceSettingScreen> {
                 ),
               ],
             ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.palette_outlined),
+            title: Text(AppLocalizations.of(context)!.colorThemeSetting),
+            trailing: DropdownButton(
+              value: selectedColorMode,
+              onChanged: updateColor,
+              items: [
+                DropdownMenuItem(
+                  value: ColorOption.red,
+                  child: Text(AppLocalizations.of(context)!.redSetting),
+                ),
+                DropdownMenuItem(
+                  value: ColorOption.yellow,
+                  child: Text(AppLocalizations.of(context)!.yellowSetting),
+                ),
+                DropdownMenuItem(
+                  value: ColorOption.blue,
+                  child: Text(AppLocalizations.of(context)!.blueSetting),
+                ),
+                DropdownMenuItem(
+                  value: ColorOption.green,
+                  child: Text(AppLocalizations.of(context)!.greenSetting),
+                ),
+                DropdownMenuItem(
+                  value: ColorOption.purple,
+                  child: Text(AppLocalizations.of(context)!.purpleSetting),
+                ),
+              ],
+            ),
           )
-        ]));
+        ],
+      ),
+    );
   }
 }
