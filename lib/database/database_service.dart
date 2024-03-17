@@ -68,16 +68,22 @@ class DatabaseService {
 
   static Future<int> addCategory(Category category) async {
     final db = await _getDatabase();
-    return await db.insert(categoryTableName, category.toJson(),
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    return await db.insert(
+      categoryTableName,
+      category.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   static Future<int> updateCategory(Category category) async {
     final db = await _getDatabase();
-    return await db.update(categoryTableName, category.toJson(),
-        where: 'id = ?',
-        whereArgs: [category.id],
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    return await db.update(
+      categoryTableName,
+      category.toJson(),
+      where: 'id = ?',
+      whereArgs: [category.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   static Future<int> deleteCategory(Category category) async {
@@ -93,7 +99,9 @@ class DatabaseService {
         await db.query(categoryTableName, orderBy: orderBy);
     if (maps.isNotEmpty) {
       return List.generate(
-          maps.length, (index) => Category.fromJson(maps[index]));
+        maps.length,
+        (index) => Category.fromJson(maps[index]),
+      );
     } else {
       return null;
     }
@@ -105,16 +113,22 @@ class DatabaseService {
 
   static Future<int> addReview(Review review) async {
     final db = await _getDatabase();
-    return await db.insert(reviewTableName, review.toJson(),
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    return await db.insert(
+      reviewTableName,
+      review.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   static Future<int> updateReview(Review review) async {
     final db = await _getDatabase();
-    return await db.update(reviewTableName, review.toJson(),
-        where: 'id = ?',
-        whereArgs: [review.id],
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    return await db.update(
+      reviewTableName,
+      review.toJson(),
+      where: 'id = ?',
+      whereArgs: [review.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   static Future<int> deleteReview(Review review) async {
@@ -123,14 +137,17 @@ class DatabaseService {
         .delete(reviewTableName, where: 'id = ?', whereArgs: [review.id]);
   }
 
-  static Future<List<Review>?> getAllReviews(
-      {String orderBy = 'restaurantName ASC'}) async {
+  static Future<List<Review>?> getAllReviews({
+    String orderBy = 'restaurantName ASC',
+  }) async {
     final db = await _getDatabase();
     final List<Map<String, dynamic>> maps =
         await db.query(reviewTableName, orderBy: orderBy);
     if (maps.isNotEmpty) {
       return List.generate(
-          maps.length, (index) => Review.fromJson(maps[index]));
+        maps.length,
+        (index) => Review.fromJson(maps[index]),
+      );
     } else {
       return null;
     }
@@ -148,26 +165,38 @@ class DatabaseService {
   }
 
   static Future<List<Review>?> getReviewsByColumn(
-      String columnName, String columnValue,
-      {String orderBy = 'restaurantName ASC'}) async {
+    String columnName,
+    String columnValue, {
+    String orderBy = 'restaurantName ASC',
+  }) async {
     final db = await _getDatabase();
-    final List<Map<String, dynamic>> maps = await db.query(reviewTableName,
-        orderBy: orderBy,
-        where: '$columnName LIKE ? OR $columnName LIKE ? OR $columnName LIKE ?',
-        whereArgs: ['%$columnValue', '%$columnValue,%', '%, $columnValue, %']);
+    final List<Map<String, dynamic>> maps = await db.query(
+      reviewTableName,
+      orderBy: orderBy,
+      where: '$columnName LIKE ? OR $columnName LIKE ? OR $columnName LIKE ?',
+      whereArgs: ['%$columnValue', '%$columnValue,%', '%, $columnValue, %'],
+    );
     if (maps.isNotEmpty) {
       return List.generate(
-          maps.length, (index) => Review.fromJson(maps[index]));
+        maps.length,
+        (index) => Review.fromJson(maps[index]),
+      );
     } else {
       return null;
     }
   }
 
   static Future<int> updateReviewFavourite(
-      int reviewId, int isFavourite) async {
+    int reviewId,
+    int isFavourite,
+  ) async {
     final db = await _getDatabase();
-    return await db.update(reviewTableName, {'isFavourite': isFavourite},
-        where: 'id = ?', whereArgs: [reviewId]);
+    return await db.update(
+      reviewTableName,
+      {'isFavourite': isFavourite},
+      where: 'id = ?',
+      whereArgs: [reviewId],
+    );
   }
 
   //=============================
@@ -176,16 +205,22 @@ class DatabaseService {
 
   static Future<int> addChecklistItem(ChecklistItem item) async {
     final db = await _getDatabase();
-    return await db.insert(checklistItemTableName, item.toJson(),
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    return await db.insert(
+      checklistItemTableName,
+      item.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   static Future<int> updateChecklistItem(ChecklistItem item) async {
     final db = await _getDatabase();
-    return await db.update(checklistItemTableName, item.toJson(),
-        where: 'id = ?',
-        whereArgs: [item.id],
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    return await db.update(
+      checklistItemTableName,
+      item.toJson(),
+      where: 'id = ?',
+      whereArgs: [item.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   static Future<int> deleteChecklistItem(ChecklistItem item) async {
@@ -201,7 +236,9 @@ class DatabaseService {
         await db.query(checklistItemTableName, orderBy: orderBy);
     if (maps.isNotEmpty) {
       return List.generate(
-          maps.length, (index) => ChecklistItem.fromJson(maps[index]));
+        maps.length,
+        (index) => ChecklistItem.fromJson(maps[index]),
+      );
     } else {
       return null;
     }
@@ -213,16 +250,22 @@ class DatabaseService {
         .query(checklistItemTableName, where: 'isChecked = ?', whereArgs: [0]);
     if (maps.isNotEmpty) {
       return List.generate(
-          maps.length, (index) => ChecklistItem.fromJson(maps[index]));
+        maps.length,
+        (index) => ChecklistItem.fromJson(maps[index]),
+      );
     } else {
-      throw Exception('Checklist not found');
+      return null;
     }
   }
 
   static Future<int> updateChecklistItemChecked(int id, int isChecked) async {
     final db = await _getDatabase();
-    return await db.update(checklistItemTableName, {'isChecked': isChecked},
-        where: 'id = ?', whereArgs: [id]);
+    return await db.update(
+      checklistItemTableName,
+      {'isChecked': isChecked},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 
   static backupDatabase() async {
@@ -242,8 +285,12 @@ class DatabaseService {
       File source = File('$dbFolder/$databaseName');
       Directory copyTo = Directory('/storage/emulated/0/Tabemashou Backup');
       await copyTo.create();
-      await source.copy(join(copyTo.path,
-          'FoodReviews_${now.day}_${now.month}_${now.year}-${now.hour}_${now.minute}.db'));
+      await source.copy(
+        join(
+          copyTo.path,
+          'FoodReviews_${now.day}_${now.month}_${now.year}-${now.hour}_${now.minute}.db',
+        ),
+      );
     } catch (e) {
       print(e);
     }
@@ -294,8 +341,11 @@ class DatabaseService {
     // Check if the "reviews" table exists
     bool reviewTableExists = false;
     try {
-      var result = await database.query('sqlite_master',
-          where: 'name = ?', whereArgs: [reviewTableName]);
+      var result = await database.query(
+        'sqlite_master',
+        where: 'name = ?',
+        whereArgs: [reviewTableName],
+      );
       reviewTableExists = result.isNotEmpty;
     } catch (e) {
       print("Error checking 'reviews' table: $e");
@@ -304,8 +354,11 @@ class DatabaseService {
     // Check if the "categories" table exists
     bool categoryTableExists = false;
     try {
-      var result = await database.query('sqlite_master',
-          where: 'name = ?', whereArgs: [categoryTableName]);
+      var result = await database.query(
+        'sqlite_master',
+        where: 'name = ?',
+        whereArgs: [categoryTableName],
+      );
       categoryTableExists = result.isNotEmpty;
     } catch (e) {
       print("Error checking 'categories' table: $e");
@@ -314,8 +367,11 @@ class DatabaseService {
     // Check if the "checklist items" table exists
     bool checklistItemTableExists = false;
     try {
-      var result = await database.query('sqlite_master',
-          where: 'name = ?', whereArgs: [checklistItemTableName]);
+      var result = await database.query(
+        'sqlite_master',
+        where: 'name = ?',
+        whereArgs: [checklistItemTableName],
+      );
       checklistItemTableExists = result.isNotEmpty;
     } catch (e) {
       print("Error checking 'checklist items' table: $e");

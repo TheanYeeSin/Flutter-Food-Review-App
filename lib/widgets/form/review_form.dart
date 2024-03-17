@@ -222,6 +222,7 @@ class _ReviewFormState extends State<ReviewForm> {
                   //-----Select Categories Button-----
                   SizedBox(
                     width: 110,
+                    height: 60,
                     child: ElevatedButton(
                       onPressed: _selectCategories,
                       child: Text(
