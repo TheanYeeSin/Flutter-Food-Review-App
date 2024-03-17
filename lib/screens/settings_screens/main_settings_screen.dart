@@ -7,6 +7,7 @@ import 'package:foodreviewapp/screens/settings_screens/notification_setting_scre
 import 'package:foodreviewapp/screens/settings_screens/library_setting_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// Main Settings Screen that containes other setting screen
 class MainSettingsScreen extends StatefulWidget {
   const MainSettingsScreen({super.key});
 
@@ -69,7 +70,8 @@ class _MainSettingsScreenState extends State<MainSettingsScreen> {
             leading: const Icon(Icons.notifications_active_outlined),
             title: Text(AppLocalizations.of(context)!.notificationsSetting),
             subtitle: Text(
-                AppLocalizations.of(context)!.notificationsSettingSubtitle),
+              AppLocalizations.of(context)!.notificationsSettingSubtitle,
+            ),
             onTap: () async {
               await Navigator.push(
                 context,
@@ -83,7 +85,8 @@ class _MainSettingsScreenState extends State<MainSettingsScreen> {
             leading: const Icon(Icons.backup_outlined),
             title: Text(AppLocalizations.of(context)!.backupRestoreSetting),
             subtitle: Text(
-                AppLocalizations.of(context)!.backupRestoreSettingSubtitle),
+              AppLocalizations.of(context)!.backupRestoreSettingSubtitle,
+            ),
             onTap: () async {
               await Navigator.push(
                 context,

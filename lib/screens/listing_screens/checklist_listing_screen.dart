@@ -6,6 +6,7 @@ import 'package:foodreviewapp/widgets/checklist_item_widget.dart';
 import 'package:foodreviewapp/widgets/form/checklist_item_from.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
+// List all the checklist item screen
 class ChecklistListingScreen extends StatefulWidget {
   const ChecklistListingScreen({super.key});
 
@@ -47,7 +48,9 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
           await _refresh();
         },
         child: isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
             : Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
@@ -58,11 +61,15 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
                   builder:
                       (context, AsyncSnapshot<List<ChecklistItem>?> snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
                     } else if (snapshot.hasError) {
                       return Center(
-                          child: Text(
-                              'Something went wrong! Error: ${snapshot.error}'));
+                        child: Text(
+                          'Something went wrong! Error: ${snapshot.error}',
+                        ),
+                      );
                     } else if (snapshot.hasData && snapshot.data != null) {
                       return ListView.builder(
                         itemBuilder: (context, index) {
@@ -70,7 +77,9 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
                             checklistItem: snapshot.data![index],
                             onLongPress: () async {
                               await _showAddChecklistDialog(
-                                  context, snapshot.data![index]);
+                                context,
+                                snapshot.data![index],
+                              );
                               setState(() {});
                             },
                             onDelete: () async {
@@ -79,11 +88,17 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
                                 builder: (context) {
                                   return AlertDialog(
                                     title: Center(
-                                        child: Text(AppLocalizations.of(
-                                                context)!
-                                            .deleteChecklistItemDialogTitle)),
-                                    content: Text(AppLocalizations.of(context)!
-                                        .deleteChecklistItemDialogMessage),
+                                      child: Text(
+                                        AppLocalizations.of(
+                                          context,
+                                        )!
+                                            .deleteChecklistItemDialogTitle,
+                                      ),
+                                    ),
+                                    content: Text(
+                                      AppLocalizations.of(context)!
+                                          .deleteChecklistItemDialogMessage,
+                                    ),
                                     actions: [
                                       ButtonBar(
                                         alignment:
@@ -94,14 +109,15 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
                                               Navigator.pop(context);
                                             },
                                             child: Text(
-                                                AppLocalizations.of(context)!
-                                                    .no),
+                                              AppLocalizations.of(context)!.no,
+                                            ),
                                           ),
                                           TextButton(
                                             onPressed: () async {
                                               await DatabaseService
                                                   .deleteChecklistItem(
-                                                      snapshot.data![index]);
+                                                snapshot.data![index],
+                                              );
                                               // ignore: use_build_context_synchronously
                                               Navigator.pop(context);
                                               setState(() {});
@@ -112,10 +128,12 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
                                                   content: Text(
                                                     // ignore: use_build_context_synchronously
                                                     AppLocalizations.of(
-                                                            context)!
+                                                      context,
+                                                    )!
                                                         .checklistItemDeletedSnackbar,
                                                     style: const TextStyle(
-                                                        color: Colors.black),
+                                                      color: Colors.black,
+                                                    ),
                                                   ),
                                                   backgroundColor:
                                                       Colors.green[100],
@@ -125,11 +143,12 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
                                             child: Text(
                                               AppLocalizations.of(context)!.yes,
                                               style: const TextStyle(
-                                                  color: Colors.redAccent),
+                                                color: Colors.redAccent,
+                                              ),
                                             ),
                                           ),
                                         ],
-                                      )
+                                      ),
                                     ],
                                   );
                                 },
@@ -141,8 +160,10 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
                       );
                     }
                     return Center(
-                        child: Text(
-                            AppLocalizations.of(context)!.noChecklistItemYet));
+                      child: Text(
+                        AppLocalizations.of(context)!.noChecklistItemYet,
+                      ),
+                    );
                   },
                 ),
               ),
@@ -159,15 +180,18 @@ class _ChecklistListingScreenState extends State<ChecklistListingScreen> {
 }
 
 Future<void> _showAddChecklistDialog(
-    BuildContext context, ChecklistItem? checklistItem) async {
+  BuildContext context,
+  ChecklistItem? checklistItem,
+) async {
   await showModalBottomSheet(
     context: context,
     isScrollControlled: true,
     builder: (BuildContext context) {
       return SingleChildScrollView(
-          child: ChecklistItemForm(
-        checklistItem: checklistItem,
-      ));
+        child: ChecklistItemForm(
+          checklistItem: checklistItem,
+        ),
+      );
     },
   );
 }

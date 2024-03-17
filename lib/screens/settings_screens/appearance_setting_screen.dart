@@ -4,6 +4,7 @@ import 'package:foodreviewapp/utils/style.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// Appearance setting screen
 class AppearanceSettingScreen extends StatefulWidget {
   const AppearanceSettingScreen({super.key});
 
@@ -92,7 +93,7 @@ class _AppearanceSettingScreenState extends State<AppearanceSettingScreen> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

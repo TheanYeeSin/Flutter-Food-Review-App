@@ -10,80 +10,88 @@ ThemeData lightTheme(BuildContext context) {
   final mainColor = getPrimaryColor(colorMode, themeMode);
 
   return ThemeData(
-      primaryColor: mainColor,
-      brightness: Brightness.light,
-      fontFamily: GoogleFonts.poppins().fontFamily,
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.grey[350],
-        elevation: 2,
-        iconTheme: const IconThemeData(color: Colors.black),
-        titleTextStyle: const TextStyle(
-            color: Colors.black,
-            fontSize: 22,
-            fontFamily: String.fromEnvironment('poppins')),
-        actionsIconTheme: const IconThemeData(color: Colors.black),
+    useMaterial3: false,
+    primaryColor: mainColor,
+    brightness: Brightness.light,
+    fontFamily: GoogleFonts.poppins().fontFamily,
+    appBarTheme: AppBarTheme(
+      backgroundColor: appBarBackgroundColorLight,
+      elevation: 2,
+      iconTheme: const IconThemeData(color: appBarIconColorLight),
+      titleTextStyle: const TextStyle(
+        color: appBarTextColorLight,
+        fontSize: 22,
+        fontFamily: String.fromEnvironment('poppins'),
       ),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Colors.grey[350],
-        elevation: 2,
-        selectedItemColor: mainColor,
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(mainColor),
-          foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+      actionsIconTheme: const IconThemeData(color: appBarIconColorLight),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: bottomNavBarBackgroundColorLight,
+      elevation: 2,
+      selectedItemColor: mainColor,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(mainColor),
+        foregroundColor: MaterialStateProperty.all<Color>(
+          elevatedButtonForegroundColorLight,
         ),
       ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: mainColor,
-        foregroundColor: Colors.black,
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: mainColor,
+      foregroundColor: floatingActionButtonForegroundColorLight,
+    ),
+    checkboxTheme: CheckboxThemeData(
+      checkColor:
+          MaterialStateColor.resolveWith((states) => checkboxCheckColorLight),
+      fillColor: MaterialStateColor.resolveWith(
+        (states) {
+          if (states.contains(MaterialState.selected)) {
+            return mainColor; // Fill color when checked
+          }
+          return Colors.transparent;
+        },
       ),
-      checkboxTheme: CheckboxThemeData(
-        checkColor: MaterialStateColor.resolveWith((states) => Colors.white),
-        fillColor: MaterialStateColor.resolveWith(
-          (states) {
-            if (states.contains(MaterialState.selected)) {
-              return mainColor; // Fill color when checked
-            }
-            return Colors.transparent;
-          },
-        ),
+    ),
+    colorScheme: const ColorScheme.light().copyWith(
+      secondary: secondaryColorLight,
+      tertiary: tertiaryColorLight,
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all<Color>(mainColor),
       ),
-      colorScheme: const ColorScheme.light().copyWith(
-        secondary: Colors.grey[100],
-        tertiary: Colors.grey[300],
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      focusColor: mainColor,
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: mainColor),
       ),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all<Color>(mainColor),
-        ),
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStateProperty.resolveWith<Color>(
+        (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return mainColor; // Color when the switch is in the "on" state
+          }
+          return switchColorLight; // Color when the switch is in the "off" state
+        },
       ),
-      inputDecorationTheme: InputDecorationTheme(
-        focusColor: mainColor,
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: mainColor),
-        ),
+      trackColor: MaterialStateProperty.resolveWith<Color>(
+        (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return mainColor.withOpacity(
+              0.5,
+            ); // Track color when the switch is in the "on" state
+          }
+          return switchColorLight.withOpacity(
+            0.5,
+          ); // Track color when the switch is in the "off" state
+        },
       ),
-      switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.resolveWith<Color>(
-          (Set<MaterialState> states) {
-            if (states.contains(MaterialState.selected)) {
-              return mainColor; // Color when the switch is in the "on" state
-            }
-            return Colors.grey; // Color when the switch is in the "off" state
-          },
-        ),
-        trackColor: MaterialStateProperty.resolveWith<Color>(
-          (Set<MaterialState> states) {
-            if (states.contains(MaterialState.selected)) {
-              return mainColor.withOpacity(
-                  0.5); // Track color when the switch is in the "on" state
-            }
-            return Colors.grey.withOpacity(
-                0.5); // Track color when the switch is in the "off" state
-          },
-        ),
-      ));
+    ),
+  );
 }
 
 ThemeData darkTheme(BuildContext context) {
@@ -91,24 +99,29 @@ ThemeData darkTheme(BuildContext context) {
   final themeMode = context.watch<ThemeManager>().themeMode;
   final mainColor = getPrimaryColor(colorMode, themeMode);
   return ThemeData(
+    useMaterial3: false,
     primaryColor: mainColor,
     brightness: Brightness.dark,
     fontFamily: GoogleFonts.poppins().fontFamily,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: const Color(0xFF141414),
+      backgroundColor: bottomNavBarBackgroundColorDark,
       elevation: 2,
       selectedItemColor: mainColor,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(mainColor),
-        foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        foregroundColor:
+            MaterialStateProperty.all<Color>(elevatedButtonForegroundColorDark),
       ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: mainColor, foregroundColor: Colors.black),
+      backgroundColor: mainColor,
+      foregroundColor: floatingActionButtonForegroundColorDark,
+    ),
     checkboxTheme: CheckboxThemeData(
-      checkColor: MaterialStateColor.resolveWith((states) => Colors.white),
+      checkColor:
+          MaterialStateColor.resolveWith((states) => checkboxCheckColorDark),
       fillColor: MaterialStateColor.resolveWith(
         (states) {
           if (states.contains(MaterialState.selected)) {
@@ -131,20 +144,21 @@ ThemeData darkTheme(BuildContext context) {
       thumbColor: MaterialStateProperty.resolveWith<Color>(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.selected)) {
-            return Colors
-                .lightBlue; // Color when the switch is in the "on" state
+            return mainColor; // Color when the switch is in the "on" state
           }
-          return Colors.grey; // Color when the switch is in the "off" state
+          return switchColorDark; // Color when the switch is in the "off" state
         },
       ),
       trackColor: MaterialStateProperty.resolveWith<Color>(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.selected)) {
             return mainColor.withOpacity(
-                0.5); // Track color when the switch is in the "on" state
+              0.5,
+            ); // Track color when the switch is in the "on" state
           }
-          return Colors.grey.withOpacity(
-              0.5); // Track color when the switch is in the "off" state
+          return switchColorDark.withOpacity(
+            0.5,
+          ); // Track color when the switch is in the "off" state
         },
       ),
     ),

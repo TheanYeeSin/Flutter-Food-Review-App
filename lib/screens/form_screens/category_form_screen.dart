@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:foodreviewapp/models/category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// Category form screen
 class CategoryFormScreen extends StatefulWidget {
   final Category? category;
   const CategoryFormScreen({super.key, this.category});
@@ -16,9 +17,11 @@ class _CategoryFormScreenState extends State<CategoryFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.category == null
-            ? AppLocalizations.of(context)!.addCategoryTitle
-            : AppLocalizations.of(context)!.editCategoryTitle),
+        title: Text(
+          widget.category == null
+              ? AppLocalizations.of(context)!.addCategoryTitle
+              : AppLocalizations.of(context)!.editCategoryTitle,
+        ),
       ),
       body: CategoryForm(category: widget.category),
     );

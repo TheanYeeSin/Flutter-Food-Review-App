@@ -10,6 +10,7 @@ import 'package:foodreviewapp/models/review.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodreviewapp/utils/image.dart';
 
+// Category Form
 class CategoryForm extends StatefulWidget {
   final Category? category;
   const CategoryForm({super.key, this.category});
@@ -49,19 +50,23 @@ class _CategoryFormState extends State<CategoryForm> {
       });
     } on PlatformException catch (e) {
       // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(
-          // ignore: use_build_context_synchronously
-          AppLocalizations.of(context)!.pickImageError(e.message!),
-          style: const TextStyle(color: Colors.black),
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            // ignore: use_build_context_synchronously
+            AppLocalizations.of(context)!.pickImageError(e.message!),
+            style: const TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.red[100],
         ),
-        backgroundColor: Colors.red[100],
-      ));
+      );
     }
   }
 
   Future<void> _updateReviewCategory(
-      String categoryName, String updatedCategoryName) async {
+    String categoryName,
+    String updatedCategoryName,
+  ) async {
     List<Review>? reviews =
         await DatabaseService.getReviewsByColumn('categories', categoryName);
     for (Review review in reviews!) {
@@ -142,15 +147,17 @@ class _CategoryFormState extends State<CategoryForm> {
               const SizedBox(height: 16),
               if (_image != null) ...[
                 Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        border: Border.all(
-                          color: Colors.grey,
-                          width: 1,
-                        )),
-                    width: double.infinity,
-                    height: 200,
-                    child: Image.file(_image!)),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                  ),
+                  width: double.infinity,
+                  height: 200,
+                  child: Image.file(_image!),
+                ),
               ],
             ],
           ),
@@ -179,24 +186,30 @@ class _CategoryFormState extends State<CategoryForm> {
             if (widget.category == null) {
               await DatabaseService.addCategory(newCategory);
               // ignore: use_build_context_synchronously
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                // ignore: use_build_context_synchronously
-                content: Text(
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  // ignore: use_build_context_synchronously
+                  content: Text(
                     AppLocalizations.of(context)!.categoryAddedSnackbar,
-                    style: const TextStyle(color: Colors.black)),
-                backgroundColor: Colors.green[100],
-              ));
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                  backgroundColor: Colors.green[100],
+                ),
+              );
             } else {
               _updateReviewCategory(oldCategoryName!, name);
               await DatabaseService.updateCategory(newCategory);
               // ignore: use_build_context_synchronously
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                // ignore: use_build_context_synchronously
-                content: Text(
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  // ignore: use_build_context_synchronously
+                  content: Text(
                     AppLocalizations.of(context)!.categoryUpdatedSnackbar,
-                    style: const TextStyle(color: Colors.black)),
-                backgroundColor: Colors.green[100],
-              ));
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                  backgroundColor: Colors.green[100],
+                ),
+              );
             }
             // ignore: use_build_context_synchronously
             Navigator.pop(context);

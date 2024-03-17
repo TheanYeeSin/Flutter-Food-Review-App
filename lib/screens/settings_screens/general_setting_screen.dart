@@ -4,6 +4,7 @@ import 'package:foodreviewapp/utils/language.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// General setting screen
 class GeneralSettingScreen extends StatefulWidget {
   const GeneralSettingScreen({super.key});
 
@@ -25,10 +26,11 @@ class _GeneralSettingScreenState extends State<GeneralSettingScreen> {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.generalSettingTitle),
-        ),
-        body: ListView(children: [
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.generalSettingTitle),
+      ),
+      body: ListView(
+        children: [
           ListTile(
             leading: const Icon(Icons.translate),
             title: Text(AppLocalizations.of(context)!.languageSetting),
@@ -46,7 +48,9 @@ class _GeneralSettingScreenState extends State<GeneralSettingScreen> {
                 ),
               ],
             ),
-          )
-        ]));
+          ),
+        ],
+      ),
+    );
   }
 }

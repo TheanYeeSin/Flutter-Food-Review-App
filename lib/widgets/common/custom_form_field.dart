@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodreviewapp/utils/validator.dart';
 
+// Custom Made Form Field for Review/Category/Checklist Form
 class CustomFormField<T> extends StatelessWidget {
   final TextEditingController? controller;
   final int? maxLines;
@@ -31,7 +32,6 @@ class CustomFormField<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      height: height,
       child: TextFormField(
         readOnly: readOnly,
         controller: controller,

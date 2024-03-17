@@ -9,6 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
+// List all the details about a review screen
 class ReviewDetailsScreen extends StatefulWidget {
   final int reviewId;
   const ReviewDetailsScreen({super.key, required this.reviewId});
@@ -41,7 +42,9 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
 
   void _toggleFavourite() async {
     await DatabaseService.updateReviewFavourite(
-        reviewObject!.id!, isFavourite ? 0 : 1);
+      reviewObject!.id!,
+      isFavourite ? 0 : 1,
+    );
     setState(() {
       isFavourite = !isFavourite;
     });
@@ -80,15 +83,18 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
             : Stack(
                 children: [
                   SizedBox(
-                      width: double.infinity,
-                      height: 0.5 * MediaQuery.of(context).size.height,
-                      child: reviewObject?.image != null
-                          ? Image.memory(reviewObject!.image!,
-                              fit: BoxFit.cover)
-                          : Image.asset(
-                              'assets/images/default_restaurant.png',
-                              fit: BoxFit.cover,
-                            )),
+                    width: double.infinity,
+                    height: 0.5 * MediaQuery.of(context).size.height,
+                    child: reviewObject?.image != null
+                        ? Image.memory(
+                            reviewObject!.image!,
+                            fit: BoxFit.cover,
+                          )
+                        : Image.asset(
+                            'assets/images/default_restaurant.png',
+                            fit: BoxFit.cover,
+                          ),
+                  ),
                   DraggableScrollableSheet(
                     maxChildSize: 1,
                     initialChildSize: 0.50,
@@ -100,7 +106,10 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                         children: [
                           Container(
                             padding: const EdgeInsets.only(
-                                top: 40, right: 14, left: 14),
+                              top: 40,
+                              right: 14,
+                              left: 14,
+                            ),
                             decoration: BoxDecoration(
                               color: Theme.of(context).colorScheme.secondary,
                               borderRadius: const BorderRadius.only(
@@ -129,8 +138,11 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                       //-----Rating-----
                                       Row(
                                         children: [
-                                          const Icon(Icons.star,
-                                              color: Colors.amber, size: 26),
+                                          const Icon(
+                                            Icons.star,
+                                            color: Colors.amber,
+                                            size: 26,
+                                          ),
                                           const SizedBox(width: 4),
                                           Text(
                                             "${reviewObject?.rating.toString()}",
@@ -160,17 +172,20 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                               const EdgeInsets.only(right: 8),
                                           child: Chip(
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                  8.0), // Set the desired border radius
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                8.0,
+                                              ), // Set the desired border radius
                                             ),
                                             side: BorderSide(
-                                                color: Theme.of(context)
-                                                            .brightness ==
-                                                        Brightness.light
-                                                    ? Colors.black
-                                                    : Colors.white,
-                                                width: 1,
-                                                style: BorderStyle.solid),
+                                              color: Theme.of(context)
+                                                          .brightness ==
+                                                      Brightness.light
+                                                  ? Colors.black
+                                                  : Colors.white,
+                                              width: 1,
+                                              style: BorderStyle.solid,
+                                            ),
                                             label: Text(
                                               "#${reviewObject?.categories?[index]}",
                                             ),
@@ -185,28 +200,31 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                   ],
                                   //-----Location-----
                                   ReviewDetailsField(
-                                      icon: const Icon(
-                                        Icons.location_on_outlined,
-                                      ),
-                                      title: AppLocalizations.of(context)!
-                                          .location,
-                                      content: reviewObject?.location),
+                                    icon: const Icon(
+                                      Icons.location_on_outlined,
+                                    ),
+                                    title:
+                                        AppLocalizations.of(context)!.location,
+                                    content: reviewObject?.location,
+                                  ),
                                   const CustomDivider(
                                     symmetricPadding: 20,
                                     dividerHeight: 4,
-                                    dividerThickness: 3,
+                                    dividerThickness: 2,
                                   ),
                                   //-----Description-----
                                   ReviewDetailsField(
-                                      icon: const Icon(
-                                          Icons.description_outlined),
-                                      title: AppLocalizations.of(context)!
-                                          .description,
-                                      content: reviewObject?.description),
+                                    icon: const Icon(
+                                      Icons.description_outlined,
+                                    ),
+                                    title: AppLocalizations.of(context)!
+                                        .description,
+                                    content: reviewObject?.description,
+                                  ),
                                   const CustomDivider(
                                     symmetricPadding: 20,
                                     dividerHeight: 4,
-                                    dividerThickness: 3,
+                                    dividerThickness: 2,
                                   ),
                                   //-----Food Available-----
                                   Row(
@@ -214,11 +232,13 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                       const Icon(Icons.lunch_dining_outlined),
                                       const SizedBox(width: 8),
                                       Text(
-                                          AppLocalizations.of(context)!
-                                              .foodAvailable,
-                                          style: const TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold)),
+                                        AppLocalizations.of(context)!
+                                            .foodAvailable,
+                                        style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                   const SizedBox(height: 14),
@@ -240,7 +260,7 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                   const CustomDivider(
                                     symmetricPadding: 20,
                                     dividerHeight: 4,
-                                    dividerThickness: 3,
+                                    dividerThickness: 2,
                                   ),
                                   //-----Additional Review-----
                                   ReviewDetailsField(
@@ -267,7 +287,7 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -291,10 +311,12 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                   return AlertDialog(
                     title: Center(
                       child: Text(
-                          AppLocalizations.of(context)!.deleteReviewButton),
+                        AppLocalizations.of(context)!.deleteReviewButton,
+                      ),
                     ),
-                    content: Text(AppLocalizations.of(context)!
-                        .deleteReviewDialogMessage),
+                    content: Text(
+                      AppLocalizations.of(context)!.deleteReviewDialogMessage,
+                    ),
                     actions: [
                       ButtonBar(
                         alignment: MainAxisAlignment.spaceEvenly,
@@ -331,7 +353,7 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   );
                 },
@@ -358,7 +380,8 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
             label: AppLocalizations.of(context)!.searchRestaurantOnlineButton,
             onTap: () async {
               final url = Uri.parse(
-                  'https://www.google.com/search?q=${reviewObject?.restaurantName} restaurant');
+                'https://www.google.com/search?q=${reviewObject?.restaurantName} restaurant',
+              );
               if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
                 throw Exception('Could not launch $url');
               }
@@ -370,7 +393,8 @@ class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
             label: AppLocalizations.of(context)!.searchLocationOnlineButton,
             onTap: () async {
               final url = Uri.parse(
-                  'https://www.google.com/maps/search/${reviewObject?.location}');
+                'https://www.google.com/maps/search/${reviewObject?.location}',
+              );
               if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
                 throw Exception('Could not launch $url');
               }

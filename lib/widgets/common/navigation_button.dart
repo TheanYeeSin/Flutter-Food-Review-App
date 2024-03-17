@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Button to navigation to ALL REVIEW & MY FAVORITE screen
 class NavigationButton extends StatelessWidget {
   final Widget icon;
   final String labelText;
@@ -18,11 +19,12 @@ class NavigationButton extends StatelessWidget {
       height: 42,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.grey[300],
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-              side: const BorderSide(color: Colors.grey),
-            )),
+          backgroundColor: Colors.grey[300],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+            side: const BorderSide(color: Colors.grey),
+          ),
+        ),
         onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

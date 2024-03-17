@@ -8,6 +8,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:foodreviewapp/utils/display.dart';
 
+// Review search delegate
 class ReviewSearchDelegate extends SearchDelegate<String> {
   final String? columnName;
   final String? columnValue;
@@ -60,107 +61,116 @@ class ReviewSearchDelegate extends SearchDelegate<String> {
   Widget buildResults(BuildContext context) {
     int selectedDisplayMode = context.watch<DisplayManager>().reviewDisplayMode;
     return FutureBuilder<List<Review>?>(
-        future: _getReviews(),
-        builder: (context, AsyncSnapshot<List<Review>?> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(
-                child: Text('Something went wrong! Error: ${snapshot.error}'));
-          } else if (snapshot.hasData && snapshot.data != null) {
-            final List<Review>? allReviews = snapshot.data;
-            List<Review>? searchResults = allReviews
-                ?.where((review) => review.restaurantName
-                    .toLowerCase()
-                    .contains(query.toLowerCase()))
-                .toList();
-            return selectedDisplayMode != 2
-                ? ListView.builder(
-                    itemBuilder: (context, index) {
-                      return ReviewWidget(
-                        onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ReviewDetailsScreen(
-                                reviewId: searchResults[index].id!,
-                              ),
-                            ),
-                          );
-                        },
-                        review: searchResults[index],
-                      );
-                    },
-                    itemCount: searchResults!.length,
-                  )
-                : GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, // Adjust as needed
-                      mainAxisSpacing: 4,
-                      crossAxisSpacing: 4,
-                    ),
-                    itemCount: searchResults!.length,
-                    itemBuilder: (context, index) {
-                      return ReviewWidget(
-                        onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ReviewDetailsScreen(
-                                reviewId: searchResults[index].id!,
-                              ),
-                            ),
-                          );
-                        },
-                        review: searchResults[index],
-                      );
-                    },
-                  );
-          }
+      future: _getReviews(),
+      builder: (context, AsyncSnapshot<List<Review>?> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
           return Center(
-              child: Text(AppLocalizations.of(context)!.noReviewFound));
-        });
+            child: Text('Something went wrong! Error: ${snapshot.error}'),
+          );
+        } else if (snapshot.hasData && snapshot.data != null) {
+          final List<Review>? allReviews = snapshot.data;
+          List<Review>? searchResults = allReviews
+              ?.where(
+                (review) => review.restaurantName
+                    .toLowerCase()
+                    .contains(query.toLowerCase()),
+              )
+              .toList();
+          return selectedDisplayMode != 2
+              ? ListView.builder(
+                  itemBuilder: (context, index) {
+                    return ReviewWidget(
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ReviewDetailsScreen(
+                              reviewId: searchResults[index].id!,
+                            ),
+                          ),
+                        );
+                      },
+                      review: searchResults[index],
+                    );
+                  },
+                  itemCount: searchResults!.length,
+                )
+              : GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // Adjust as needed
+                    mainAxisSpacing: 4,
+                    crossAxisSpacing: 4,
+                  ),
+                  itemCount: searchResults!.length,
+                  itemBuilder: (context, index) {
+                    return ReviewWidget(
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ReviewDetailsScreen(
+                              reviewId: searchResults[index].id!,
+                            ),
+                          ),
+                        );
+                      },
+                      review: searchResults[index],
+                    );
+                  },
+                );
+        }
+        return Center(
+          child: Text(AppLocalizations.of(context)!.noReviewFound),
+        );
+      },
+    );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     return FutureBuilder<List<Review>?>(
-        future: _getReviews(),
-        builder: (context, AsyncSnapshot<List<Review>?> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(
-                child: Text('Something went wrong! Error: ${snapshot.error}'));
-          } else if (snapshot.hasData && snapshot.data != null) {
-            final List<Review>? allReviews = snapshot.data;
-            const int maxSuggestions = 10;
-            final random = Random();
-            List<String> filteredNames = allReviews
-                    ?.where((review) => review.restaurantName
-                        .toLowerCase()
-                        .contains(query.toLowerCase()))
-                    .map((review) => review.restaurantName)
-                    .toList() ??
-                [];
-            filteredNames.shuffle(random);
-            filteredNames = filteredNames.take(maxSuggestions).toList();
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(filteredNames[index]),
-                  onTap: () {
-                    query = filteredNames[index];
-                    showResults(context);
-                  },
-                );
-              },
-              itemCount: filteredNames.length,
-            );
-          }
+      future: _getReviews(),
+      builder: (context, AsyncSnapshot<List<Review>?> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
           return Center(
-              child: Text(AppLocalizations.of(context)!.noSuggestion));
-        });
+            child: Text('Something went wrong! Error: ${snapshot.error}'),
+          );
+        } else if (snapshot.hasData && snapshot.data != null) {
+          final List<Review>? allReviews = snapshot.data;
+          const int maxSuggestions = 10;
+          final random = Random();
+          List<String> filteredNames = allReviews
+                  ?.where(
+                    (review) => review.restaurantName
+                        .toLowerCase()
+                        .contains(query.toLowerCase()),
+                  )
+                  .map((review) => review.restaurantName)
+                  .toList() ??
+              [];
+          filteredNames.shuffle(random);
+          filteredNames = filteredNames.take(maxSuggestions).toList();
+          return ListView.builder(
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(filteredNames[index]),
+                onTap: () {
+                  query = filteredNames[index];
+                  showResults(context);
+                },
+              );
+            },
+            itemCount: filteredNames.length,
+          );
+        }
+        return Center(
+          child: Text(AppLocalizations.of(context)!.noSuggestion),
+        );
+      },
+    );
   }
 }

@@ -5,6 +5,7 @@ import 'package:foodreviewapp/utils/validator.dart';
 import 'package:foodreviewapp/widgets/common/custom_form_field.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// Checklist Item Form
 class ChecklistItemForm extends StatefulWidget {
   final ChecklistItem? checklistItem;
   const ChecklistItemForm({super.key, this.checklistItem});
@@ -33,10 +34,11 @@ class _ChecklistItemFormState extends State<ChecklistItemForm> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom + 10,
-          right: 10,
-          left: 10,
-          top: 10),
+        bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+        right: 10,
+        left: 10,
+        top: 10,
+      ),
       child: Column(
         children: [
           Text(
@@ -69,29 +71,38 @@ class _ChecklistItemFormState extends State<ChecklistItemForm> {
                             widget.checklistItem?.isChecked ?? false;
 
                         final ChecklistItem newChecklistItem = ChecklistItem(
-                            id: widget.checklistItem?.id,
-                            name: name,
-                            isChecked: isChecked);
+                          id: widget.checklistItem?.id,
+                          name: name,
+                          isChecked: isChecked,
+                        );
                         if (widget.checklistItem == null) {
                           await DatabaseService.addChecklistItem(
-                              newChecklistItem);
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text(
+                            newChecklistItem,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
                                 AppLocalizations.of(context)!
                                     .checklistItemAddedSnackbar,
-                                style: const TextStyle(color: Colors.black)),
-                            backgroundColor: Colors.green[100],
-                          ));
+                                style: const TextStyle(color: Colors.black),
+                              ),
+                              backgroundColor: Colors.green[100],
+                            ),
+                          );
                         } else {
                           await DatabaseService.updateChecklistItem(
-                              newChecklistItem);
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text(
+                            newChecklistItem,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
                                 AppLocalizations.of(context)!
                                     .checklistItemUpdatedSnackbar,
-                                style: const TextStyle(color: Colors.black)),
-                            backgroundColor: Colors.green[100],
-                          ));
+                                style: const TextStyle(color: Colors.black),
+                              ),
+                              backgroundColor: Colors.green[100],
+                            ),
+                          );
                         }
                         // ignore: use_build_context_synchronously
                         Navigator.pop(context);

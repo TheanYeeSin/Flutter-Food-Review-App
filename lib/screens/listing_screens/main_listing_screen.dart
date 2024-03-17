@@ -11,6 +11,7 @@ import 'package:foodreviewapp/widgets/common/navigation_button.dart';
 import 'package:foodreviewapp/widgets/counter_widget.dart';
 import 'package:provider/provider.dart';
 
+// List the category of reviews screen (The Main Screen)
 class MainListingScreen extends StatefulWidget {
   const MainListingScreen({super.key});
 
@@ -35,38 +36,43 @@ class _MainListingScreenState extends State<MainListingScreen> {
         context.watch<DisplayManager>().categoryDisplayMode;
     return Scaffold(
       appBar: AppBar(
-          title: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(left: 2, right: 10),
-            width: 25,
-            height: 25,
-            child: Theme.of(context).brightness == Brightness.light
-                ? Image.asset('assets/icons/logo_with_less_padding.png')
-                : Image.asset('assets/icons/logo_white_with_less_padding.png'),
-          ),
-          Text(
-            AppLocalizations.of(context)!.reviewTitle,
-            style: const TextStyle(fontSize: 22),
-          ),
-          const SizedBox(width: 10),
-          FutureBuilder(
+        title: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(left: 2, right: 10),
+              width: 25,
+              height: 25,
+              child: Theme.of(context).brightness == Brightness.light
+                  ? Image.asset('assets/icons/logo_with_less_padding.png')
+                  : Image.asset(
+                      'assets/icons/logo_white_with_less_padding.png'),
+            ),
+            Text(
+              AppLocalizations.of(context)!.reviewTitle,
+              style: const TextStyle(fontSize: 22),
+            ),
+            const SizedBox(width: 10),
+            FutureBuilder(
               future: _countAllReview(),
               builder: (context, AsyncSnapshot<int> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   return Center(
-                      child: Text(
-                          'Something went wrong! Error: ${snapshot.error}'));
+                    child: Text(
+                      'Something went wrong! Error: ${snapshot.error}',
+                    ),
+                  );
                 } else if (snapshot.hasData && snapshot.data != null) {
                   return CounterWidget(count: snapshot.data);
                 }
                 return const CounterWidget(count: 0);
-              })
-        ],
-      )),
+              },
+            ),
+          ],
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -97,10 +103,11 @@ class _MainListingScreenState extends State<MainListingScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ReviewListingScreen(
-                            columnName: 'isFavourite',
-                            columnValue: '1',
-                            titleValue:
-                                AppLocalizations.of(context)!.myFavoritesTitle),
+                          columnName: 'isFavourite',
+                          columnValue: '1',
+                          titleValue:
+                              AppLocalizations.of(context)!.myFavoritesTitle,
+                        ),
                       ),
                     );
                     setState(() {});
@@ -110,7 +117,10 @@ class _MainListingScreenState extends State<MainListingScreen> {
             ),
           ),
           const CustomDivider(
-              symmetricPadding: 8, dividerHeight: 4, dividerThickness: 2),
+            symmetricPadding: 8,
+            dividerHeight: 4,
+            dividerThickness: 2,
+          ),
           Expanded(
             flex: 8,
             child: FutureBuilder<List<Category>?>(
@@ -120,8 +130,10 @@ class _MainListingScreenState extends State<MainListingScreen> {
                   return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   return Center(
-                      child: Text(
-                          'Something went wrong! Error: ${snapshot.error}'));
+                    child: Text(
+                      'Something went wrong! Error: ${snapshot.error}',
+                    ),
+                  );
                 } else if (snapshot.hasData && snapshot.data != null) {
                   return CustomScrollView(
                     slivers: [
@@ -186,12 +198,14 @@ class _MainListingScreenState extends State<MainListingScreen> {
                                   );
                                 },
                                 childCount: snapshot.data!.length,
-                              ))
+                              ),
+                            ),
                     ],
                   );
                 }
                 return Center(
-                    child: Text(AppLocalizations.of(context)!.noReviewYet));
+                  child: Text(AppLocalizations.of(context)!.noReviewYet),
+                );
               },
             ),
           ),

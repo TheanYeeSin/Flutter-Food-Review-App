@@ -3,15 +3,17 @@ import 'package:foodreviewapp/database/database_service.dart';
 import 'package:foodreviewapp/models/checklist_item.dart';
 import 'package:foodreviewapp/screens/form_screens/review_form_screen.dart';
 
+// Checklist item display widget
 class ChecklistItemWidget extends StatefulWidget {
   final ChecklistItem checklistItem;
   final VoidCallback onLongPress;
   final VoidCallback onDelete;
-  const ChecklistItemWidget(
-      {super.key,
-      required this.checklistItem,
-      required this.onLongPress,
-      required this.onDelete});
+  const ChecklistItemWidget({
+    super.key,
+    required this.checklistItem,
+    required this.onLongPress,
+    required this.onDelete,
+  });
 
   @override
   State<ChecklistItemWidget> createState() => _ChecklistItemWidgetState();
@@ -28,7 +30,9 @@ class _ChecklistItemWidgetState extends State<ChecklistItemWidget> {
 
   void _toggleChecked() async {
     await DatabaseService.updateChecklistItemChecked(
-        widget.checklistItem.id!, isChecked ? 0 : 1);
+      widget.checklistItem.id!,
+      isChecked ? 0 : 1,
+    );
     setState(() {
       isChecked = !isChecked;
     });
@@ -74,8 +78,9 @@ class _ChecklistItemWidgetState extends State<ChecklistItemWidget> {
           ),
         ),
         trailing: IconButton(
-            icon: const Icon(Icons.delete, color: Colors.red),
-            onPressed: widget.onDelete),
+          icon: const Icon(Icons.delete, color: Colors.red),
+          onPressed: widget.onDelete,
+        ),
       ),
     );
   }

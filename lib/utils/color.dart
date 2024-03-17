@@ -16,3 +16,24 @@ Color getPrimaryColor(ColorOption colorOption, ThemeMode themeMode) {
       return themeMode == ThemeMode.dark ? Colors.purpleAccent : Colors.purple;
   }
 }
+
+// Light Theme
+Color? appBarBackgroundColorLight = Colors.grey[350];
+const Color appBarIconColorLight = Colors.black;
+const Color appBarTextColorLight = Colors.black;
+Color? bottomNavBarBackgroundColorLight = Colors.grey[350];
+const Color elevatedButtonForegroundColorLight = Colors.black;
+const Color floatingActionButtonForegroundColorLight = Colors.black;
+const Color checkboxCheckColorLight = Colors.white;
+Color? secondaryColorLight = Colors.grey[100];
+Color? tertiaryColorLight = Colors.grey[300];
+const Color switchColorLight = Colors.grey;
+
+// Dark Theme
+const Color bottomNavBarBackgroundColorDark = Color(0xFF141414);
+const Color elevatedButtonForegroundColorDark = Colors.black;
+const Color floatingActionButtonForegroundColorDark = Colors.black;
+const Color checkboxCheckColorDark = Colors.white;
+Color? secondaryColorDark = Colors.grey[800];
+Color? tertiaryColorDark = Colors.grey[600];
+const Color switchColorDark = Colors.grey;

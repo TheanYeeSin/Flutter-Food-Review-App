@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Custom Field to display details in Review
 class ReviewDetailsField extends StatelessWidget {
   final Widget icon;
   final String title;
@@ -22,7 +23,7 @@ class ReviewDetailsField extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               title,
-              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ],
         ),

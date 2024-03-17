@@ -5,11 +5,15 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodreviewapp/utils/display.dart';
 import 'package:provider/provider.dart';
 
+// Widget that display the review on listing page
 class ReviewWidget extends StatefulWidget {
   final Review review;
   final VoidCallback onPressed;
-  const ReviewWidget(
-      {super.key, required this.review, required this.onPressed});
+  const ReviewWidget({
+    super.key,
+    required this.review,
+    required this.onPressed,
+  });
 
   @override
   State<ReviewWidget> createState() => _ReviewWidgetState();
@@ -26,7 +30,9 @@ class _ReviewWidgetState extends State<ReviewWidget> {
 
   void _toggleFavourite() async {
     await DatabaseService.updateReviewFavourite(
-        widget.review.id!, isFavourite ? 0 : 1);
+      widget.review.id!,
+      isFavourite ? 0 : 1,
+    );
     setState(() {
       isFavourite = !isFavourite;
     });
@@ -68,15 +74,17 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                   : const Icon(Icons.favorite_border, color: Colors.red),
               onPressed: _toggleFavourite,
             ),
-            Row(children: [
-              const Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              Text(
-                widget.review.rating.toString(),
-              ),
-            ])
+            Row(
+              children: [
+                const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                Text(
+                  widget.review.rating.toString(),
+                ),
+              ],
+            ),
           ],
         ),
         onTap: widget.onPressed,
@@ -105,9 +113,10 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                           : Image.asset('assets/images/default_restaurant.png'),
                     ),
                     Positioned(
-                        left: 2,
-                        top: 15,
-                        child: Row(children: [
+                      left: 2,
+                      top: 15,
+                      child: Row(
+                        children: [
                           const Icon(
                             Icons.star,
                             color: Colors.amber,
@@ -115,20 +124,28 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                           Text(
                             widget.review.rating.toString(),
                           ),
-                        ])),
+                        ],
+                      ),
+                    ),
                     Positioned(
-                        right: 2,
-                        top: 2,
-                        child: isFavourite
-                            ? IconButton(
-                                icon: const Icon(Icons.favorite,
-                                    color: Colors.red),
-                                onPressed: _toggleFavourite,
-                              )
-                            : IconButton(
-                                icon: const Icon(Icons.favorite_border,
-                                    color: Colors.red),
-                                onPressed: _toggleFavourite)),
+                      right: 2,
+                      top: 2,
+                      child: isFavourite
+                          ? IconButton(
+                              icon: const Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              ),
+                              onPressed: _toggleFavourite,
+                            )
+                          : IconButton(
+                              icon: const Icon(
+                                Icons.favorite_border,
+                                color: Colors.red,
+                              ),
+                              onPressed: _toggleFavourite,
+                            ),
+                    ),
                   ],
                 ),
                 ListTile(
@@ -172,32 +189,40 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                       SizedBox(
                         width: double.infinity,
                         height: 150,
-                        child: Stack(children: [
-                          Center(
-                            child: widget.review.image != null
-                                ? Image.memory(
-                                    widget.review.image!,
-                                    fit: BoxFit.cover,
-                                  )
-                                : Image.asset(
-                                    'assets/images/default_restaurant.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                          ),
-                          Positioned(
+                        child: Stack(
+                          children: [
+                            Center(
+                              child: widget.review.image != null
+                                  ? Image.memory(
+                                      widget.review.image!,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : Image.asset(
+                                      'assets/images/default_restaurant.png',
+                                      fit: BoxFit.cover,
+                                    ),
+                            ),
+                            Positioned(
                               right: 15,
                               top: 15,
                               child: isFavourite
                                   ? IconButton(
-                                      icon: const Icon(Icons.favorite,
-                                          color: Colors.red),
+                                      icon: const Icon(
+                                        Icons.favorite,
+                                        color: Colors.red,
+                                      ),
                                       onPressed: _toggleFavourite,
                                     )
                                   : IconButton(
-                                      icon: const Icon(Icons.favorite_border,
-                                          color: Colors.red),
-                                      onPressed: _toggleFavourite)),
-                        ]),
+                                      icon: const Icon(
+                                        Icons.favorite_border,
+                                        color: Colors.red,
+                                      ),
+                                      onPressed: _toggleFavourite,
+                                    ),
+                            ),
+                          ],
+                        ),
                       ),
                       Container(
                         padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
@@ -205,16 +230,17 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Flexible(
-                                    child: Text(widget.review.restaurantName,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium),
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    widget.review.restaurantName,
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
                                   ),
-                                  Row(children: [
+                                ),
+                                Row(
+                                  children: [
                                     const Icon(
                                       Icons.star,
                                       color: Colors.amber,
@@ -222,8 +248,10 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                                     Text(
                                       widget.review.rating.toString(),
                                     ),
-                                  ])
-                                ]),
+                                  ],
+                                ),
+                              ],
+                            ),
                             const SizedBox(height: 5),
                             Text(
                               widget.review.description,
@@ -235,11 +263,13 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                               children: [
                                 const Spacer(),
                                 TextButton(
-                                    onPressed: widget.onPressed,
-                                    child: Text(
-                                        AppLocalizations.of(context)!.view))
+                                  onPressed: widget.onPressed,
+                                  child: Text(
+                                    AppLocalizations.of(context)!.view,
+                                  ),
+                                ),
                               ],
-                            )
+                            ),
                           ],
                         ),
                       ),

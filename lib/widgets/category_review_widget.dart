@@ -4,11 +4,15 @@ import 'package:foodreviewapp/utils/display.dart';
 import 'package:foodreviewapp/widgets/counter_widget.dart';
 import 'package:provider/provider.dart';
 
+// A widget to display the category of the review in the main screen
 class CategoryReviewWidget extends StatefulWidget {
   final Category category;
   final VoidCallback onPressed;
-  const CategoryReviewWidget(
-      {super.key, required this.category, required this.onPressed});
+  const CategoryReviewWidget({
+    super.key,
+    required this.category,
+    required this.onPressed,
+  });
 
   @override
   State<CategoryReviewWidget> createState() => _CategoryReviewWidgetState();
@@ -48,7 +52,7 @@ class _CategoryReviewWidgetState extends State<CategoryReviewWidget> {
                         columnName: 'categories',
                         columnValue: widget.category.name,
                       ),
-                    )
+                    ),
                   ],
                 ),
                 ListTile(

@@ -13,6 +13,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodreviewapp/utils/image.dart';
 
+// Review Form
 class ReviewForm extends StatefulWidget {
   final Review? review;
   final String? restaurantName;
@@ -74,14 +75,16 @@ class _ReviewFormState extends State<ReviewForm> {
       });
     } on PlatformException catch (e) {
       // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(
-          // ignore: use_build_context_synchronously
-          AppLocalizations.of(context)!.pickImageError(e.message!),
-          style: const TextStyle(color: Colors.black),
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            // ignore: use_build_context_synchronously
+            AppLocalizations.of(context)!.pickImageError(e.message!),
+            style: const TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.red[100],
         ),
-        backgroundColor: Colors.red[100],
-      ));
+      );
     }
   }
 
@@ -104,47 +107,48 @@ class _ReviewFormState extends State<ReviewForm> {
 
   Future<void> _showChoiceDialog(BuildContext context) {
     return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Center(
-              child: Text(
-                AppLocalizations.of(context)!.chooseOptionDialogTitle,
-              ),
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Center(
+            child: Text(
+              AppLocalizations.of(context)!.chooseOptionDialogTitle,
             ),
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: [
-                  ListTile(
-                    onTap: () {
-                      pickImage(ImageSource.gallery);
-                      Navigator.pop(context);
-                    },
-                    title: Text(AppLocalizations.of(context)!.galleryOption),
-                    leading: const Icon(
-                      Icons.account_box,
-                    ),
+          ),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [
+                ListTile(
+                  onTap: () {
+                    pickImage(ImageSource.gallery);
+                    Navigator.pop(context);
+                  },
+                  title: Text(AppLocalizations.of(context)!.galleryOption),
+                  leading: const Icon(
+                    Icons.account_box,
                   ),
-                  const CustomDivider(
-                    symmetricPadding: 4,
-                    dividerHeight: 4,
-                    dividerThickness: 2,
+                ),
+                const CustomDivider(
+                  symmetricPadding: 4,
+                  dividerHeight: 4,
+                  dividerThickness: 2,
+                ),
+                ListTile(
+                  onTap: () {
+                    pickImage(ImageSource.camera);
+                    Navigator.pop(context);
+                  },
+                  title: Text(AppLocalizations.of(context)!.cameraOption),
+                  leading: const Icon(
+                    Icons.camera,
                   ),
-                  ListTile(
-                    onTap: () {
-                      pickImage(ImageSource.camera);
-                      Navigator.pop(context);
-                    },
-                    title: Text(AppLocalizations.of(context)!.cameraOption),
-                    leading: const Icon(
-                      Icons.camera,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -162,11 +166,12 @@ class _ReviewFormState extends State<ReviewForm> {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(
-                        color: Colors.grey,
-                        width: 1,
-                      )),
+                    borderRadius: BorderRadius.circular(10.0),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                  ),
                   child: InkWell(
                     onTap: () {
                       _showChoiceDialog(context);
@@ -179,14 +184,17 @@ class _ReviewFormState extends State<ReviewForm> {
                           image: _image != null
                               ? Image.file(_image!).image
                               : const AssetImage(
-                                  'assets/images/default_pick_image.png'),
+                                  'assets/images/default_pick_image.png',
+                                ),
                           fit: BoxFit.cover,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: Text(_image != null
-                              ? AppLocalizations.of(context)!.changeImage
-                              : AppLocalizations.of(context)!.pickImage),
+                          child: Text(
+                            _image != null
+                                ? AppLocalizations.of(context)!.changeImage
+                                : AppLocalizations.of(context)!.pickImage,
+                          ),
                         ),
                       ],
                     ),
@@ -202,7 +210,6 @@ class _ReviewFormState extends State<ReviewForm> {
                   Expanded(
                     child: CustomFormField(
                       controller: restaurantNameController,
-                      height: 62,
                       labelText: AppLocalizations.of(context)!.restaurantName,
                       errorText: AppLocalizations.of(context)!
                           .enterRestaurantNameError,
@@ -215,7 +222,6 @@ class _ReviewFormState extends State<ReviewForm> {
                   //-----Select Categories Button-----
                   SizedBox(
                     width: 110,
-                    height: 62,
                     child: ElevatedButton(
                       onPressed: _selectCategories,
                       child: Text(
@@ -248,7 +254,6 @@ class _ReviewFormState extends State<ReviewForm> {
               //-----Location-----
               CustomFormField(
                 controller: locationController,
-                height: 62,
                 labelText: AppLocalizations.of(context)!.location,
                 errorText: AppLocalizations.of(context)!.enterLocationError,
                 prefixIcon: const Icon(Icons.location_on),
@@ -259,7 +264,6 @@ class _ReviewFormState extends State<ReviewForm> {
               //-----Description-----
               CustomFormField(
                 controller: descriptionController,
-                height: 62,
                 labelText: AppLocalizations.of(context)!.description,
                 errorText: AppLocalizations.of(context)!.enterDescriptionError,
                 prefixIcon: const Icon(Icons.description),
@@ -270,7 +274,6 @@ class _ReviewFormState extends State<ReviewForm> {
               //-----Food Available-----
               CustomFormField(
                 controller: foodAvailableController,
-                height: 62,
                 labelText: AppLocalizations.of(context)!.foodAvailable,
                 errorText:
                     AppLocalizations.of(context)!.enterFoodAvailableError,
@@ -282,22 +285,23 @@ class _ReviewFormState extends State<ReviewForm> {
               //-----Rating-----
               Center(
                 child: RatingBar.builder(
-                    initialRating: _ratingController,
-                    minRating: 0,
-                    direction: Axis.horizontal,
-                    allowHalfRating: true,
-                    itemCount: 10,
-                    itemSize: 28,
-                    itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
-                    itemBuilder: (context, _) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                    onRatingUpdate: (rating) {
-                      setState(() {
-                        _ratingController = rating;
-                      });
-                    }),
+                  initialRating: _ratingController,
+                  minRating: 0,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 10,
+                  itemSize: 28,
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  onRatingUpdate: (rating) {
+                    setState(() {
+                      _ratingController = rating;
+                    });
+                  },
+                ),
               ),
               const SizedBox(height: 16),
               //-----Additional Review-----
@@ -351,19 +355,26 @@ class _ReviewFormState extends State<ReviewForm> {
             );
             if (widget.review == null) {
               await DatabaseService.addReview(newReview);
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(AppLocalizations.of(context)!.reviewAddedSnackbar,
-                    style: const TextStyle(color: Colors.black)),
-                backgroundColor: Colors.green[100],
-              ));
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    AppLocalizations.of(context)!.reviewAddedSnackbar,
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                  backgroundColor: Colors.green[100],
+                ),
+              );
             } else {
               await DatabaseService.updateReview(newReview);
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
                     AppLocalizations.of(context)!.reviewUpdatedSnackbar,
-                    style: const TextStyle(color: Colors.black)),
-                backgroundColor: Colors.green[100],
-              ));
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                  backgroundColor: Colors.green[100],
+                ),
+              );
             }
             // ignore: use_build_context_synchronously
             Navigator.pop(context);

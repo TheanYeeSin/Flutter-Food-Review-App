@@ -5,6 +5,7 @@ import 'package:foodreviewapp/screens/settings_screens/main_settings_screen.dart
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// More Screen -> Settings
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
 
@@ -24,11 +25,12 @@ class _MoreScreenState extends State<MoreScreen> {
             children: [
               Center(
                 child: SizedBox(
-                    width: 300,
-                    height: 300,
-                    child: Theme.of(context).brightness == Brightness.light
-                        ? Image.asset('assets/icons/logo.png')
-                        : Image.asset('assets/icons/logo_white.png')),
+                  width: 300,
+                  height: 300,
+                  child: Theme.of(context).brightness == Brightness.light
+                      ? Image.asset('assets/icons/logo.png')
+                      : Image.asset('assets/icons/logo_white.png'),
+                ),
               ),
               const Divider(height: 4, thickness: 2),
               Expanded(
@@ -51,7 +53,8 @@ class _MoreScreenState extends State<MoreScreen> {
                     ListTile(
                       leading: const Icon(Icons.backup),
                       title: Text(
-                          AppLocalizations.of(context)!.backupRestoreSetting),
+                        AppLocalizations.of(context)!.backupRestoreSetting,
+                      ),
                       onTap: () async {
                         await Navigator.push(
                           context,
@@ -80,9 +83,12 @@ class _MoreScreenState extends State<MoreScreen> {
                       title: Text(AppLocalizations.of(context)!.about),
                       onTap: () async {
                         final url = Uri.parse(
-                            'https://github.com/TheanYeeSin/Tabemashou-Food-Review-App');
-                        if (!await launchUrl(url,
-                            mode: LaunchMode.externalApplication)) {
+                          'https://github.com/TheanYeeSin/Tabemashou-Food-Review-App',
+                        );
+                        if (!await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        )) {
                           throw Exception('Could not launch $url');
                         }
                       },

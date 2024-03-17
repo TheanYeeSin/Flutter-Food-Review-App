@@ -3,6 +3,7 @@ import 'package:foodreviewapp/utils/notification.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// Notification setting screen
 class NotificationSettingScreen extends StatefulWidget {
   const NotificationSettingScreen({super.key});
 
@@ -79,10 +80,14 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text(AppLocalizations.of(context)!
-                        .notificationTooltipDialogTitle),
-                    content: Text(AppLocalizations.of(context)!
-                        .notificationTooltipDialogMessage),
+                    title: Text(
+                      AppLocalizations.of(context)!
+                          .notificationTooltipDialogTitle,
+                    ),
+                    content: Text(
+                      AppLocalizations.of(context)!
+                          .notificationTooltipDialogMessage,
+                    ),
                     actions: [
                       TextButton(
                         onPressed: () {
@@ -95,7 +100,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                 },
               );
             },
-          )
+          ),
         ],
       ),
       body: ListView(
@@ -108,32 +113,34 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 OutlinedButton(
-                    onPressed: () async {
-                      final TimeOfDay? timeOfDay = await showTimePicker(
-                        context: context,
-                        initialTime: selectedBreakfastTime,
-                        initialEntryMode: TimePickerEntryMode.dial,
-                      );
-                      if (timeOfDay != null) {
-                        setState(() {
-                          selectedBreakfastTime = timeOfDay;
-                        });
-                        if (breakfastSwitchValue) {
-                          NotificationManager.cancelNotification(111);
-                          NotificationManager.scheduleDailyNotification(
-                            111,
-                            selectedBreakfastTime,
-                            AppLocalizations.of(context)!
-                                .breakfastNotificationTitle,
-                            AppLocalizations.of(context)!
-                                .breakfastNotificationMessage,
-                          );
-                        }
-                        _saveTime('breakfastTime', timeOfDay);
+                  onPressed: () async {
+                    final TimeOfDay? timeOfDay = await showTimePicker(
+                      context: context,
+                      initialTime: selectedBreakfastTime,
+                      initialEntryMode: TimePickerEntryMode.dial,
+                    );
+                    if (timeOfDay != null) {
+                      setState(() {
+                        selectedBreakfastTime = timeOfDay;
+                      });
+                      if (breakfastSwitchValue) {
+                        NotificationManager.cancelNotification(111);
+                        NotificationManager.scheduleDailyNotification(
+                          111,
+                          selectedBreakfastTime,
+                          AppLocalizations.of(context)!
+                              .breakfastNotificationTitle,
+                          AppLocalizations.of(context)!
+                              .breakfastNotificationMessage,
+                        );
                       }
-                    },
-                    child: Text(
-                        "${selectedBreakfastTime.hour}:${selectedBreakfastTime.minute}")),
+                      _saveTime('breakfastTime', timeOfDay);
+                    }
+                  },
+                  child: Text(
+                    "${selectedBreakfastTime.hour}:${selectedBreakfastTime.minute}",
+                  ),
+                ),
                 Switch(
                   value: breakfastSwitchValue,
                   onChanged: (value) {
@@ -166,32 +173,33 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 OutlinedButton(
-                    onPressed: () async {
-                      final TimeOfDay? timeOfDay = await showTimePicker(
-                        context: context,
-                        initialTime: selectedLunchTime,
-                        initialEntryMode: TimePickerEntryMode.dial,
-                      );
-                      if (timeOfDay != null) {
-                        setState(() {
-                          selectedLunchTime = timeOfDay;
-                        });
-                        if (lunchSwitchValue) {
-                          NotificationManager.cancelNotification(222);
-                          NotificationManager.scheduleDailyNotification(
-                            222,
-                            selectedLunchTime,
-                            AppLocalizations.of(context)!
-                                .lunchNotificationTitle,
-                            AppLocalizations.of(context)!
-                                .lunchNotificationMessage,
-                          );
-                        }
-                        _saveTime('lunchTime', timeOfDay);
+                  onPressed: () async {
+                    final TimeOfDay? timeOfDay = await showTimePicker(
+                      context: context,
+                      initialTime: selectedLunchTime,
+                      initialEntryMode: TimePickerEntryMode.dial,
+                    );
+                    if (timeOfDay != null) {
+                      setState(() {
+                        selectedLunchTime = timeOfDay;
+                      });
+                      if (lunchSwitchValue) {
+                        NotificationManager.cancelNotification(222);
+                        NotificationManager.scheduleDailyNotification(
+                          222,
+                          selectedLunchTime,
+                          AppLocalizations.of(context)!.lunchNotificationTitle,
+                          AppLocalizations.of(context)!
+                              .lunchNotificationMessage,
+                        );
                       }
-                    },
-                    child: Text(
-                        "${selectedLunchTime.hour}:${selectedLunchTime.minute}")),
+                      _saveTime('lunchTime', timeOfDay);
+                    }
+                  },
+                  child: Text(
+                    "${selectedLunchTime.hour}:${selectedLunchTime.minute}",
+                  ),
+                ),
                 Switch(
                   value: lunchSwitchValue,
                   onChanged: (value) {
@@ -223,32 +231,33 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 OutlinedButton(
-                    onPressed: () async {
-                      final TimeOfDay? timeOfDay = await showTimePicker(
-                        context: context,
-                        initialTime: selectedDinnerTime,
-                        initialEntryMode: TimePickerEntryMode.dial,
-                      );
-                      if (timeOfDay != null) {
-                        setState(() {
-                          selectedDinnerTime = timeOfDay;
-                        });
-                        if (dinnerSwitchValue) {
-                          NotificationManager.cancelNotification(333);
-                          NotificationManager.scheduleDailyNotification(
-                            333,
-                            selectedDinnerTime,
-                            AppLocalizations.of(context)!
-                                .dinnerNotificationTitle,
-                            AppLocalizations.of(context)!
-                                .dinnerNotificationMessage,
-                          );
-                        }
-                        _saveTime('dinnerTime', timeOfDay);
+                  onPressed: () async {
+                    final TimeOfDay? timeOfDay = await showTimePicker(
+                      context: context,
+                      initialTime: selectedDinnerTime,
+                      initialEntryMode: TimePickerEntryMode.dial,
+                    );
+                    if (timeOfDay != null) {
+                      setState(() {
+                        selectedDinnerTime = timeOfDay;
+                      });
+                      if (dinnerSwitchValue) {
+                        NotificationManager.cancelNotification(333);
+                        NotificationManager.scheduleDailyNotification(
+                          333,
+                          selectedDinnerTime,
+                          AppLocalizations.of(context)!.dinnerNotificationTitle,
+                          AppLocalizations.of(context)!
+                              .dinnerNotificationMessage,
+                        );
                       }
-                    },
-                    child: Text(
-                        "${selectedDinnerTime.hour}:${selectedDinnerTime.minute}")),
+                      _saveTime('dinnerTime', timeOfDay);
+                    }
+                  },
+                  child: Text(
+                    "${selectedDinnerTime.hour}:${selectedDinnerTime.minute}",
+                  ),
+                ),
                 Switch(
                   value: dinnerSwitchValue,
                   onChanged: (value) {

@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'dart:io';
 
+// Backup and Restore setting screen
 class BackupRestoreSettingScreen extends StatefulWidget {
   const BackupRestoreSettingScreen({super.key});
 
@@ -17,10 +18,11 @@ class _BackupRestoreSettingScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.backupRestoreSetting),
-        ),
-        body: ListView(children: [
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.backupRestoreSetting),
+      ),
+      body: ListView(
+        children: [
           ListTile(
             leading: const Icon(Icons.backup_outlined),
             title: Text(AppLocalizations.of(context)!.backupSetting),
@@ -29,25 +31,30 @@ class _BackupRestoreSettingScreenState
             onTap: () async {
               try {
                 DatabaseService.backupDatabase();
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(
-                    // ignore: use_build_context_synchronously
-                    AppLocalizations.of(context)!.backUpSuccessSnackbar(
-                        "/storage/emulated/0/Tabemashou Backup"),
-                    style: const TextStyle(color: Colors.black),
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      // ignore: use_build_context_synchronously
+                      AppLocalizations.of(context)!.backUpSuccessSnackbar(
+                        "/storage/emulated/0/Tabemashou Backup",
+                      ),
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                    backgroundColor: Colors.green[100],
                   ),
-                  backgroundColor: Colors.green[100],
-                ));
+                );
               } catch (e) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(
-                    // ignore: use_build_context_synchronously
-                    AppLocalizations.of(context)!
-                        .backUpFailedSnackbar(e.toString()),
-                    style: const TextStyle(color: Colors.black),
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      // ignore: use_build_context_synchronously
+                      AppLocalizations.of(context)!
+                          .backUpFailedSnackbar(e.toString()),
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                    backgroundColor: Colors.red[100],
                   ),
-                  backgroundColor: Colors.red[100],
-                ));
+                );
               }
             },
           ),
@@ -63,27 +70,33 @@ class _BackupRestoreSettingScreenState
                 File file = File(result.files.single.path!);
                 if (await DatabaseService.isValidDatabaseFile(file)) {
                   DatabaseService.restoreDatabase(file);
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(
-                      // ignore: use_build_context_synchronously
-                      AppLocalizations.of(context)!.restoreSuccessSnackbar,
-                      style: const TextStyle(color: Colors.black),
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        // ignore: use_build_context_synchronously
+                        AppLocalizations.of(context)!.restoreSuccessSnackbar,
+                        style: const TextStyle(color: Colors.black),
+                      ),
+                      backgroundColor: Colors.green[100],
                     ),
-                    backgroundColor: Colors.green[100],
-                  ));
+                  );
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(
-                      // ignore: use_build_context_synchronously
-                      AppLocalizations.of(context)!.restoreFailedSnackbar,
-                      style: const TextStyle(color: Colors.black),
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        // ignore: use_build_context_synchronously
+                        AppLocalizations.of(context)!.restoreFailedSnackbar,
+                        style: const TextStyle(color: Colors.black),
+                      ),
+                      backgroundColor: Colors.red[100],
                     ),
-                    backgroundColor: Colors.red[100],
-                  ));
+                  );
                 }
               }
             },
-          )
-        ]));
+          ),
+        ],
+      ),
+    );
   }
 }

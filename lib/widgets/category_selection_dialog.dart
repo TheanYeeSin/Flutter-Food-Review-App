@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:foodreviewapp/models/category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// Category selection dialog in Category form
 class CategorySelectionDialog extends StatefulWidget {
   final List<Category> availableCategories;
   final List<String> selectedCategories;
 
-  const CategorySelectionDialog(
-      {super.key,
-      required this.availableCategories,
-      required this.selectedCategories});
+  const CategorySelectionDialog({
+    super.key,
+    required this.availableCategories,
+    required this.selectedCategories,
+  });
 
   @override
   State<CategorySelectionDialog> createState() =>
@@ -29,8 +31,8 @@ class _CategorySelectionDialogState extends State<CategorySelectionDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Center(
-          child:
-              Text(AppLocalizations.of(context)!.selectCategoriesDialogTitle)),
+        child: Text(AppLocalizations.of(context)!.selectCategoriesDialogTitle),
+      ),
       content: SingleChildScrollView(
         child: Column(
           children: widget.availableCategories.map((category) {

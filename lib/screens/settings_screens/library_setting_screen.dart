@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodreviewapp/utils/display.dart';
 
+// Library setting screen
 class LibrarySettingScreen extends StatefulWidget {
   const LibrarySettingScreen({super.key});
 
@@ -24,7 +25,8 @@ class _LibrarySettingScreenState extends State<LibrarySettingScreen> {
       if (displayMode != null) {
         selectedReviewDisplayMode = displayMode;
         context.read<DisplayManager>().toggleReviewDisplayMode(
-            displayMode); // Update the theme using the provider
+              displayMode,
+            ); // Update the theme using the provider
       }
     }
 
@@ -32,7 +34,8 @@ class _LibrarySettingScreenState extends State<LibrarySettingScreen> {
       if (displayMode != null) {
         selectedCategoryDisplayMode = displayMode;
         context.read<DisplayManager>().toggleCategoryDisplayMode(
-            displayMode); // Update the theme using the provider
+              displayMode,
+            ); // Update the theme using the provider
       }
     }
 
@@ -93,7 +96,7 @@ class _LibrarySettingScreenState extends State<LibrarySettingScreen> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
