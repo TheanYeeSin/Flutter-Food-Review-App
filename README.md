@@ -31,6 +31,7 @@ flutter run
 - Add/Edit/Delete new categories
 - Search Review
 - Sort Review
+- Restaurant Checklist
 - Random restaurant
 - Add Favourite
 - Backup/Restore database
